@@ -1,0 +1,2 @@
+# Timer Driver: An adventure
+  This driver took a bit more creative thinking to be able to combine both regular timer usage and more complex compare/capture usage into a single interface. Of course it became two interfaces, the timer_interface and timer_cc_interface.   An extra challenge was thinking through how to get the exact same driver to work for the three different types of timers on the stm32F411XE. The answer was to work around the weakest ones (TIM10 and TIM11). All fancy advanced features of TIM1 must be accessed the hard way with register reads and writes.
