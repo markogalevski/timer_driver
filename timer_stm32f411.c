@@ -328,6 +328,49 @@ uint32_t timer_cc_read(timer_cc_t timer_cc)
 	return(*TIM_CCR[timer_cc]);
 }
 
+void timer_cc_write(timer_cc_t timer_cc, uint32_t value)
+{
+	*TIM_CCR[timer_cc] = value;
+}
+
+void timer_cc_pwm_duty_cycle_set(timer_cc_t timer_cc, uint32_t duty_cycle_pcnt)
+{
+	/*
+	 * This PWM calculation mode works with as small as 2% error for PWM frequencies
+	 * of up to 100kHz when run on the APB2 bus timers at 96MHz, i.e. TIM1,9,10,11.
+	 * This suits almost all DC motor applications, heating/slow response systems, and low
+	 * frequency power supplies. If you want to use it for high quality audio (200kHz, an
+	 * implementation using the FPU will keep the error low. The resolution at such
+	 * high frequencies drops to about 0.2% of your output voltage.
+	 */
+	assert(duty_cycle_pcnt <= 100);
+	uint32_t timer_cc_port;
+	uint32_t timer_cc_channel;
+	timer_cc_parse_ccr(timer_cc, &timer_cc_port, &timer_cc_channel);
+
+
+	/* NOTE: The error on this duty cycle calculation rises the fewer ticks you use
+	 * for PWM generation. A 22kHz PWM on a 48MHz 16bit timer leads to a maximum
+	 * error of <0.5% when generating a 50% signal. If "absolute precision" is required,
+	 * I will look into using the FPU, but I rather wouldn't.
+	 */
+
+	uint32_t estimated_one_pcnt = *TIM_ARR[timer_cc_port]/100;
+	if (*TIM_ARR[timer_cc_port] % 100 > 50)
+	{
+		estimated_one_pcnt++;
+	}
+
+	if (duty_cycle_pcnt <= 50)
+	{
+	*TIM_CCR[timer_cc] = estimated_one_pcnt*duty_cycle_pcnt;
+	}
+	else
+	{
+		*TIM_CCR[timer_cc] = *TIM_ARR[timer_cc_port] - (estimated_one_pcnt*(100-duty_cycle_pcnt));
+	}
+}
+
 static void timer_cc_init_output(timer_cc_t timer_cc, timer_cc_config_t *config)
 {
 	uint32_t timer_cc_port;
@@ -440,5 +483,6 @@ static void timer_cc_init_input(timer_cc_t timer_cc, timer_cc_config_t *config)
 		*TIM_CCER[timer_cc_port] |= (0x05UL << (4 * timer_cc_channel));
 	}
 }
+
 #endif
 
