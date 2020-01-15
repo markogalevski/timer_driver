@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Timer Driver: Timer Driver: An adventure</title>
+<title>Timer Driver: Timer Driver: Two part Time-Base/Capture Compare Driver</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -81,7 +81,7 @@ $(document).ready(function(){initNavTree('md__home_marko__documents_embedded_wor
 
 <div class="header">
   <div class="headertitle">
-<div class="title">Timer Driver: An adventure </div>  </div>
+<div class="title">Timer Driver: Two part Time-Base/Capture Compare Driver </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This driver took a bit more creative thinking to be able to combine both regular timer usage and more complex compare/capture usage into a single interface. Of course it became two interfaces, the timer_interface and timer_cc_interface. An extra challenge was thinking through how to get the exact same driver to work for the three different types of timers on the stm32F411XE. The answer was to work around the weakest ones (TIM10 and TIM11). All fancy advanced features of TIM1 must be accessed the hard way with register reads and writes. </p>
