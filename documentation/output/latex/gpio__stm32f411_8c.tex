@@ -1,0 +1,390 @@
+\hypertarget{gpio__stm32f411_8c}{}\section{gpio\+\_\+stm32f411.\+c File Reference}
+\label{gpio__stm32f411_8c}\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+
+
+machine specific implementation of gpio  
+
+
+{\ttfamily \#include \char`\"{}gpio\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stm32f411xe.\+h\char`\"{}}\newline
+Include dependency graph for gpio\+\_\+stm32f411.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{gpio__stm32f411_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{gpio__stm32f411_8c_adb312c6a2d8064fb21620d1e141111d6}{P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT}~16
+\item 
+\#define \hyperlink{gpio__stm32f411_8c_aeb4a9e2654893b7387d045ad31b49b54}{N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+R\+TS}~N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS/\hyperlink{gpio__stm32f411_8c_adb312c6a2d8064fb21620d1e141111d6}{P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT}
+\item 
+\#define \hyperlink{gpio__stm32f411_8c_a5e79a132891546dc445fdb7da50aac05}{M\+O\+D\+E\+Ry\+\_\+\+W\+I\+D\+TH}~0x03\+UL
+\item 
+\#define \hyperlink{gpio__stm32f411_8c_a31e0afd14374afd650cad9d96f926634}{O\+T\+Y\+P\+E\+Ry\+\_\+\+W\+I\+D\+TH}~0x01\+UL
+\item 
+\#define \hyperlink{gpio__stm32f411_8c_a5c09cb127b6821185919edf6f073d10b}{O\+S\+P\+E\+E\+D\+Ry\+\_\+\+W\+I\+D\+TH}~0x03\+UL
+\item 
+\#define \hyperlink{gpio__stm32f411_8c_a5ba45c14a5628e63e7cbb11e2252ffa3}{P\+U\+P\+D\+Ry\+\_\+\+W\+I\+D\+TH}~0x03\+UL
+\item 
+\#define \hyperlink{gpio__stm32f411_8c_a5f7ff5c93c31db6930004969c20b6e7b}{A\+F\+L\+H\+Ry\+\_\+\+W\+I\+D\+TH}~0x0\+F\+UL
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{gpio__stm32f411_8c_a19bc61b9832a2879bc1c8953dcfae407}{gpio\+\_\+init} (\hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t} $\ast$config\+\_\+table)
+\item 
+\hyperlink{gpio__stm32f411__config_8h_a5e8c50a3dc51d01d0e6bdf2428ee59a7}{gpio\+\_\+pin\+\_\+state\+\_\+t} \hyperlink{gpio__stm32f411_8c_ac793bee91b8d2c12796adcbf8ea15121}{gpio\+\_\+pin\+\_\+read} (\hyperlink{gpio__stm32f411__config_8h_abf6d98e99fb0fb81b56c89f29bd6120e}{gpio\+\_\+pin\+\_\+t} pin)
+\item 
+void \hyperlink{gpio__stm32f411_8c_ac1fc916f9add814d8e48656082157d69}{gpio\+\_\+pin\+\_\+write} (\hyperlink{gpio__stm32f411__config_8h_abf6d98e99fb0fb81b56c89f29bd6120e}{gpio\+\_\+pin\+\_\+t} pin, \hyperlink{gpio__stm32f411__config_8h_a5e8c50a3dc51d01d0e6bdf2428ee59a7}{gpio\+\_\+pin\+\_\+state\+\_\+t} value)
+\item 
+void \hyperlink{gpio__stm32f411_8c_aa0ddb48c46df4618795dcc007efd0865}{gpio\+\_\+pin\+\_\+toggle} (\hyperlink{gpio__stm32f411__config_8h_abf6d98e99fb0fb81b56c89f29bd6120e}{gpio\+\_\+pin\+\_\+t} pin)
+\item 
+void \hyperlink{gpio__stm32f411_8c_a0578742f44243946456798e9f99b409d}{gpio\+\_\+register\+\_\+write} (uint32\+\_\+t gpio\+\_\+register, uint32\+\_\+t value)
+\item 
+uint32\+\_\+t \hyperlink{gpio__stm32f411_8c_a2b37f1fe30f115d92f9d8a4aea7dc705}{gpio\+\_\+register\+\_\+read} (uint32\+\_\+t gpio\+\_\+register)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \hyperlink{gpio__stm32f411_8c_ac1d1f780f23cf17a4685aeeb7362e89d}{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+machine specific implementation of gpio 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{gpio__stm32f411_8c_a5f7ff5c93c31db6930004969c20b6e7b}\label{gpio__stm32f411_8c_a5f7ff5c93c31db6930004969c20b6e7b}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!A\+F\+L\+H\+Ry\+\_\+\+W\+I\+D\+TH@{A\+F\+L\+H\+Ry\+\_\+\+W\+I\+D\+TH}}
+\index{A\+F\+L\+H\+Ry\+\_\+\+W\+I\+D\+TH@{A\+F\+L\+H\+Ry\+\_\+\+W\+I\+D\+TH}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{A\+F\+L\+H\+Ry\+\_\+\+W\+I\+D\+TH}{AFLHRy\_WIDTH}}
+{\footnotesize\ttfamily \#define A\+F\+L\+H\+Ry\+\_\+\+W\+I\+D\+TH~0x0\+F\+UL}
+
+The width of a the bitfield controlling the alternate function M\+UX \mbox{\Hypertarget{gpio__stm32f411_8c_a5e79a132891546dc445fdb7da50aac05}\label{gpio__stm32f411_8c_a5e79a132891546dc445fdb7da50aac05}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!M\+O\+D\+E\+Ry\+\_\+\+W\+I\+D\+TH@{M\+O\+D\+E\+Ry\+\_\+\+W\+I\+D\+TH}}
+\index{M\+O\+D\+E\+Ry\+\_\+\+W\+I\+D\+TH@{M\+O\+D\+E\+Ry\+\_\+\+W\+I\+D\+TH}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{M\+O\+D\+E\+Ry\+\_\+\+W\+I\+D\+TH}{MODERy\_WIDTH}}
+{\footnotesize\ttfamily \#define M\+O\+D\+E\+Ry\+\_\+\+W\+I\+D\+TH~0x03\+UL}
+
+The width of the bitfield controlling a pin\textquotesingle{}s mode \mbox{\Hypertarget{gpio__stm32f411_8c_aeb4a9e2654893b7387d045ad31b49b54}\label{gpio__stm32f411_8c_aeb4a9e2654893b7387d045ad31b49b54}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+R\+TS@{N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+R\+TS}}
+\index{N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+R\+TS@{N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+R\+TS}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+R\+TS}{NUM\_GPIO\_PORTS}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+O\+R\+TS~N\+U\+M\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS/\hyperlink{gpio__stm32f411_8c_adb312c6a2d8064fb21620d1e141111d6}{P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT}}
+
+Number of letter named ports \mbox{\Hypertarget{gpio__stm32f411_8c_a5c09cb127b6821185919edf6f073d10b}\label{gpio__stm32f411_8c_a5c09cb127b6821185919edf6f073d10b}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!O\+S\+P\+E\+E\+D\+Ry\+\_\+\+W\+I\+D\+TH@{O\+S\+P\+E\+E\+D\+Ry\+\_\+\+W\+I\+D\+TH}}
+\index{O\+S\+P\+E\+E\+D\+Ry\+\_\+\+W\+I\+D\+TH@{O\+S\+P\+E\+E\+D\+Ry\+\_\+\+W\+I\+D\+TH}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{O\+S\+P\+E\+E\+D\+Ry\+\_\+\+W\+I\+D\+TH}{OSPEEDRy\_WIDTH}}
+{\footnotesize\ttfamily \#define O\+S\+P\+E\+E\+D\+Ry\+\_\+\+W\+I\+D\+TH~0x03\+UL}
+
+The width of the bitfield controlling the output speed of a pin \mbox{\Hypertarget{gpio__stm32f411_8c_a31e0afd14374afd650cad9d96f926634}\label{gpio__stm32f411_8c_a31e0afd14374afd650cad9d96f926634}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!O\+T\+Y\+P\+E\+Ry\+\_\+\+W\+I\+D\+TH@{O\+T\+Y\+P\+E\+Ry\+\_\+\+W\+I\+D\+TH}}
+\index{O\+T\+Y\+P\+E\+Ry\+\_\+\+W\+I\+D\+TH@{O\+T\+Y\+P\+E\+Ry\+\_\+\+W\+I\+D\+TH}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{O\+T\+Y\+P\+E\+Ry\+\_\+\+W\+I\+D\+TH}{OTYPERy\_WIDTH}}
+{\footnotesize\ttfamily \#define O\+T\+Y\+P\+E\+Ry\+\_\+\+W\+I\+D\+TH~0x01\+UL}
+
+The width of the bitfield controlling the output type of a pin \mbox{\Hypertarget{gpio__stm32f411_8c_adb312c6a2d8064fb21620d1e141111d6}\label{gpio__stm32f411_8c_adb312c6a2d8064fb21620d1e141111d6}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT@{P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT}}
+\index{P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT@{P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT}{PINS\_PER\_PORT}}
+{\footnotesize\ttfamily \#define P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT~16}
+
+The number of pins per letter named port \mbox{\Hypertarget{gpio__stm32f411_8c_a5ba45c14a5628e63e7cbb11e2252ffa3}\label{gpio__stm32f411_8c_a5ba45c14a5628e63e7cbb11e2252ffa3}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!P\+U\+P\+D\+Ry\+\_\+\+W\+I\+D\+TH@{P\+U\+P\+D\+Ry\+\_\+\+W\+I\+D\+TH}}
+\index{P\+U\+P\+D\+Ry\+\_\+\+W\+I\+D\+TH@{P\+U\+P\+D\+Ry\+\_\+\+W\+I\+D\+TH}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{P\+U\+P\+D\+Ry\+\_\+\+W\+I\+D\+TH}{PUPDRy\_WIDTH}}
+{\footnotesize\ttfamily \#define P\+U\+P\+D\+Ry\+\_\+\+W\+I\+D\+TH~0x03\+UL}
+
+The width of the bitfield controlling pull up/pull down selection 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gpio__stm32f411_8c_a19bc61b9832a2879bc1c8953dcfae407}\label{gpio__stm32f411_8c_a19bc61b9832a2879bc1c8953dcfae407}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!gpio\+\_\+init@{gpio\+\_\+init}}
+\index{gpio\+\_\+init@{gpio\+\_\+init}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{gpio\+\_\+init()}{gpio\_init()}}
+{\footnotesize\ttfamily void gpio\+\_\+init (\begin{DoxyParamCaption}\item[{\hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t} $\ast$}]{config\+\_\+table }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} 
+
+This function is used to initialise the gpio based on the configuration table defined in the \hyperlink{gpio__stm32f411__config_8c}{gpio\+\_\+stm32f411\+\_\+config.\+c}
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: Configuration table needs to populated (sizeof $>$ 0) ~\newline
+ P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: P\+I\+N\+S\+\_\+\+P\+E\+R\+\_\+\+P\+O\+RT $>$ 0 ~\newline
+ P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+P\+O\+R\+TS $>$ 0 ~\newline
+ P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The R\+CC clocks for all planned ports must be configured and enabled.
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The G\+P\+IO is ready for use with all active pins set up.
+
+
+\begin{DoxyParams}{Parameters}
+{\em config\+\_\+table} & is a pointer to the configuration table that contains the initialisation structures for each planned gpio pin.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+\begin{DoxyCode}
+\textcolor{keyword}{const} \hyperlink{structgpio__config__t}{gpio\_config\_t} *gpio\_config = \hyperlink{gpio__stm32f411__config_8c_a2f1150ba6fa738e90abcd72b16507062}{gpio\_config\_get}();
+\hyperlink{gpio__interface_8h_a19bc61b9832a2879bc1c8953dcfae407}{gpio\_init}(gpio\_config);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{gpio__stm32f411__config_8h_a2f1150ba6fa738e90abcd72b16507062}{gpio\+\_\+config\+\_\+get}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{gpio__stm32f411_8c_ac793bee91b8d2c12796adcbf8ea15121}\label{gpio__stm32f411_8c_ac793bee91b8d2c12796adcbf8ea15121}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!gpio\+\_\+pin\+\_\+read@{gpio\+\_\+pin\+\_\+read}}
+\index{gpio\+\_\+pin\+\_\+read@{gpio\+\_\+pin\+\_\+read}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{gpio\+\_\+pin\+\_\+read()}{gpio\_pin\_read()}}
+{\footnotesize\ttfamily \hyperlink{gpio__stm32f411__config_8h_a5e8c50a3dc51d01d0e6bdf2428ee59a7}{gpio\+\_\+pin\+\_\+state\+\_\+t} gpio\+\_\+pin\+\_\+read (\begin{DoxyParamCaption}\item[{\hyperlink{gpio__stm32f411__config_8h_abf6d98e99fb0fb81b56c89f29bd6120e}{gpio\+\_\+pin\+\_\+t}}]{pin }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} 
+
+This function reads the current state of the selected pin, regardless of whether it is in input or output mode.
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: \hyperlink{gpio__stm32f411_8c_a19bc61b9832a2879bc1c8953dcfae407}{gpio\+\_\+init()} has run successfully with the selected pin configured within the config table
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The return value contains the requested pin state in 1/0 form.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & is a member of the gpio\+\_\+pin\+\_\+t enumeration typedef\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+gpio\+\_\+pin\+\_\+state\+\_\+t containing the pin\textquotesingle{}s current state
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{gpio__stm32f411__config_8h_a5e8c50a3dc51d01d0e6bdf2428ee59a7}{gpio\_pin\_state\_t} current\_state = \hyperlink{gpio__interface_8h_ac793bee91b8d2c12796adcbf8ea15121}{gpio\_pin\_read}(GPIO\_E\_4);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{gpio__stm32f411_8c_ac1fc916f9add814d8e48656082157d69}{gpio\+\_\+pin\+\_\+write} 
+
+\hyperlink{gpio__stm32f411_8c_aa0ddb48c46df4618795dcc007efd0865}{gpio\+\_\+pin\+\_\+toggle}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{gpio__stm32f411_8c_aa0ddb48c46df4618795dcc007efd0865}\label{gpio__stm32f411_8c_aa0ddb48c46df4618795dcc007efd0865}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!gpio\+\_\+pin\+\_\+toggle@{gpio\+\_\+pin\+\_\+toggle}}
+\index{gpio\+\_\+pin\+\_\+toggle@{gpio\+\_\+pin\+\_\+toggle}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{gpio\+\_\+pin\+\_\+toggle()}{gpio\_pin\_toggle()}}
+{\footnotesize\ttfamily void gpio\+\_\+pin\+\_\+toggle (\begin{DoxyParamCaption}\item[{\hyperlink{gpio__stm32f411__config_8h_abf6d98e99fb0fb81b56c89f29bd6120e}{gpio\+\_\+pin\+\_\+t}}]{pin }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} Toggles the state of the desired pin operating in output mode.
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: gpio\+\_\+init has been carried out and configured the pin in output mode.
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The pin takes on the opposite state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & is the pin whose state we wish to change\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{gpio__interface_8h_aa0ddb48c46df4618795dcc007efd0865}{gpio\_pin\_toggle}(GPIO\_D\_15);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{gpio__stm32f411_8c_ac793bee91b8d2c12796adcbf8ea15121}{gpio\+\_\+pin\+\_\+read} 
+
+\hyperlink{gpio__stm32f411_8c_ac1fc916f9add814d8e48656082157d69}{gpio\+\_\+pin\+\_\+write}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{gpio__stm32f411_8c_ac1fc916f9add814d8e48656082157d69}\label{gpio__stm32f411_8c_ac1fc916f9add814d8e48656082157d69}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!gpio\+\_\+pin\+\_\+write@{gpio\+\_\+pin\+\_\+write}}
+\index{gpio\+\_\+pin\+\_\+write@{gpio\+\_\+pin\+\_\+write}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{gpio\+\_\+pin\+\_\+write()}{gpio\_pin\_write()}}
+{\footnotesize\ttfamily void gpio\+\_\+pin\+\_\+write (\begin{DoxyParamCaption}\item[{\hyperlink{gpio__stm32f411__config_8h_abf6d98e99fb0fb81b56c89f29bd6120e}{gpio\+\_\+pin\+\_\+t}}]{pin,  }\item[{\hyperlink{gpio__stm32f411__config_8h_a5e8c50a3dc51d01d0e6bdf2428ee59a7}{gpio\+\_\+pin\+\_\+state\+\_\+t}}]{value }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} Writes the desired state to the pin operating in output mode.
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: gpio\+\_\+init has been carried out and configured the pin in output mode.
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The pin takes on the desired state.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & is the pin whose state we wish to change\\
+\hline
+{\em value} & is the state which we wish the pin to assume\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{gpio__interface_8h_ac1fc916f9add814d8e48656082157d69}{gpio\_pin\_write}(GPIO\_C\_0, GPIO\_PIN\_HIGH);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{gpio__stm32f411_8c_ac793bee91b8d2c12796adcbf8ea15121}{gpio\+\_\+pin\+\_\+read} 
+
+\hyperlink{gpio__stm32f411_8c_aa0ddb48c46df4618795dcc007efd0865}{gpio\+\_\+pin\+\_\+toggle}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{gpio__stm32f411_8c_a2b37f1fe30f115d92f9d8a4aea7dc705}\label{gpio__stm32f411_8c_a2b37f1fe30f115d92f9d8a4aea7dc705}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!gpio\+\_\+register\+\_\+read@{gpio\+\_\+register\+\_\+read}}
+\index{gpio\+\_\+register\+\_\+read@{gpio\+\_\+register\+\_\+read}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{gpio\+\_\+register\+\_\+read()}{gpio\_register\_read()}}
+{\footnotesize\ttfamily uint32\+\_\+t gpio\+\_\+register\+\_\+read (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{gpio\+\_\+register }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} Reads a the value of the selected G\+P\+IO register in the G\+P\+IO memory space. This function can be used within a greater super function to access more advanced features of the G\+P\+IO, such as the L\+O\+CK.
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The value of G\+P\+I\+O\+\_\+register lies within the memory map defined region dedicated to G\+P\+IO
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The registers contents are returned
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+register} & whose contents we wish to read\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t the value within the register
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+uint32\_t contents = \hyperlink{gpio__interface_8h_a2b37f1fe30f115d92f9d8a4aea7dc705}{gpio\_register\_read}(GPIOD\_BASE + 0x1CUL);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{gpio__stm32f411_8c_a0578742f44243946456798e9f99b409d}{gpio\+\_\+register\+\_\+write}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ \mbox{\Hypertarget{gpio__stm32f411_8c_a0578742f44243946456798e9f99b409d}\label{gpio__stm32f411_8c_a0578742f44243946456798e9f99b409d}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!gpio\+\_\+register\+\_\+write@{gpio\+\_\+register\+\_\+write}}
+\index{gpio\+\_\+register\+\_\+write@{gpio\+\_\+register\+\_\+write}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{gpio\+\_\+register\+\_\+write()}{gpio\_register\_write()}}
+{\footnotesize\ttfamily void gpio\+\_\+register\+\_\+write (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{gpio\+\_\+register,  }\item[{uint32\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} Writes a desired value to the selected G\+P\+IO register in the G\+P\+IO memory space. This function can be used within a greater super function to access more advanced features of the G\+P\+IO, such as the L\+O\+CK.
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The value of G\+P\+I\+O\+\_\+register lies within the memory map defined region dedicated to G\+P\+IO
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The register has been modified.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gpio\+\_\+register} & is the register whose contents we wish to change\\
+\hline
+{\em value} & is the state which we wish the pin to assume\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\hyperlink{gpio__interface_8h_a0578742f44243946456798e9f99b409d}{gpio\_register\_write}(GPIOD\_BASE + 0x1CUL, 0xDEADBEEF);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{gpio__stm32f411_8c_a2b37f1fe30f115d92f9d8a4aea7dc705}{gpio\+\_\+register\+\_\+read}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{gpio__stm32f411_8c_ac1d1f780f23cf17a4685aeeb7362e89d}\label{gpio__stm32f411_8c_ac1d1f780f23cf17a4685aeeb7362e89d}} 
+\index{gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}!A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS@{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS}}
+\index{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS@{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS}!gpio\+\_\+stm32f411.\+c@{gpio\+\_\+stm32f411.\+c}}
+\subsubsection{\texorpdfstring{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS}{ACTIVE\_GPIO\_PINS}}
+{\footnotesize\ttfamily const uint32\+\_\+t A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS}
+
+Prevents iteration over 64 pins when only a few are used 

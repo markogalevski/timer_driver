@@ -1,0 +1,4 @@
+documentation/latex
+*.log
+doxygen_log.txt
+

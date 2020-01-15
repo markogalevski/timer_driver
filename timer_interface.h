@@ -32,13 +32,4 @@ uint32_t timer_register_read(timer_t timer, uint32_t timer_register);
 
 
 
-
-
-
-
-
-
-
-
-
 #endif

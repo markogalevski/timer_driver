@@ -28,14 +28,14 @@ typedef enum
 
 typedef enum
 {
-	update_interrupt,
-	CC1_interrupt,
-	CC2_interrupt,
-	CC3_interrupt,
-	CC4_interrupt,
-	COM_interrupt,
-	trigger_interrupt,
-	break_interrupt
+	UPDATE_INTERRUPT,
+	CC1_INTERRUPT,
+	CC2_INTERRUPT,
+	CC3_INTERRUPT,
+	CC4_INTERRUPT,
+	COM_INTERRUPT,
+	trigger_INTERRUPT,
+	break_INTERRUPT
 }timer_interrupt_t;
 
 typedef enum
@@ -149,6 +149,6 @@ timer_arpe_t auto_reload_preload_en;
 const timer_advanced_t *advanced;
 }timer_config_t;
 
-
+const timer_config_t *timer_config_table_get(void);
 
 #endif

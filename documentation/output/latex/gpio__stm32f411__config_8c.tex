@@ -1,0 +1,82 @@
+\hypertarget{gpio__stm32f411__config_8c}{}\section{gpio\+\_\+stm32f411\+\_\+config.\+c File Reference}
+\label{gpio__stm32f411__config_8c}\index{gpio\+\_\+stm32f411\+\_\+config.\+c@{gpio\+\_\+stm32f411\+\_\+config.\+c}}
+
+
+A file defining a config table which contains all information required by gpio\+\_\+init to initialise the pins with the desired behaviour.  
+
+
+{\ttfamily \#include \char`\"{}gpio\+\_\+stm32f411\+\_\+config.\+h\char`\"{}}\newline
+Include dependency graph for gpio\+\_\+stm32f411\+\_\+config.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=205pt]{gpio__stm32f411__config_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t} $\ast$ \hyperlink{gpio__stm32f411__config_8c_a2f1150ba6fa738e90abcd72b16507062}{gpio\+\_\+config\+\_\+get} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint32\+\_\+t \hyperlink{gpio__stm32f411__config_8c_ac1d1f780f23cf17a4685aeeb7362e89d}{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS} = sizeof(gpio\+\_\+config\+\_\+table)/sizeof(\hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A file defining a config table which contains all information required by gpio\+\_\+init to initialise the pins with the desired behaviour. 
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gpio__stm32f411__config_8c_a2f1150ba6fa738e90abcd72b16507062}\label{gpio__stm32f411__config_8c_a2f1150ba6fa738e90abcd72b16507062}} 
+\index{gpio\+\_\+stm32f411\+\_\+config.\+c@{gpio\+\_\+stm32f411\+\_\+config.\+c}!gpio\+\_\+config\+\_\+get@{gpio\+\_\+config\+\_\+get}}
+\index{gpio\+\_\+config\+\_\+get@{gpio\+\_\+config\+\_\+get}!gpio\+\_\+stm32f411\+\_\+config.\+c@{gpio\+\_\+stm32f411\+\_\+config.\+c}}
+\subsubsection{\texorpdfstring{gpio\+\_\+config\+\_\+get()}{gpio\_config\_get()}}
+{\footnotesize\ttfamily const \hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t}$\ast$ gpio\+\_\+config\+\_\+get (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+{\bfseries Description\+:} Retrieves the config table for the gpio peripheral, normally hidden statically within the config.\+c file.
+
+P\+R\+E-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The config table has been populated/exists with a size greater than 0.
+
+P\+O\+S\+T-\/\+C\+O\+N\+D\+I\+T\+I\+ON\+: The returned value points to the base of the config table
+
+\begin{DoxyReturn}{Returns}
+const \hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t} $\ast$
+\end{DoxyReturn}
+{\bfseries Example\+:} 
+
+
+\begin{DoxyCode}
+\textcolor{keyword}{const} \hyperlink{structgpio__config__t}{gpio\_config\_t} gpio\_config\_table = \hyperlink{gpio__stm32f411__config_8c_a2f1150ba6fa738e90abcd72b16507062}{gpio\_config\_get}(\textcolor{keywordtype}{void});
+\hyperlink{gpio__interface_8h_a19bc61b9832a2879bc1c8953dcfae407}{gpio\_init}(gpio\_config\_table);
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{gpio__stm32f411_8c_a19bc61b9832a2879bc1c8953dcfae407}{gpio\+\_\+init}
+\end{DoxySeeAlso}
+~\newline
+{\bfseries  -\/ C\+H\+A\+N\+GE H\+I\+S\+T\+O\+RY -\/ }
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+Date &Software Version &Initials &Description  \\\cline{1-4}
+\end{longtabu}
+~\newline
+~\newline
+ 
+
+ 
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{gpio__stm32f411__config_8c_ac1d1f780f23cf17a4685aeeb7362e89d}\label{gpio__stm32f411__config_8c_ac1d1f780f23cf17a4685aeeb7362e89d}} 
+\index{gpio\+\_\+stm32f411\+\_\+config.\+c@{gpio\+\_\+stm32f411\+\_\+config.\+c}!A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS@{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS}}
+\index{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS@{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS}!gpio\+\_\+stm32f411\+\_\+config.\+c@{gpio\+\_\+stm32f411\+\_\+config.\+c}}
+\subsubsection{\texorpdfstring{A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS}{ACTIVE\_GPIO\_PINS}}
+{\footnotesize\ttfamily const uint32\+\_\+t A\+C\+T\+I\+V\+E\+\_\+\+G\+P\+I\+O\+\_\+\+P\+I\+NS = sizeof(gpio\+\_\+config\+\_\+table)/sizeof(\hyperlink{structgpio__config__t}{gpio\+\_\+config\+\_\+t})}
+
+Prevents iteration over 64 pins when only a few are used 
