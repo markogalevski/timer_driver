@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mode',['mode',['../structgpio__config__t.html#a23aeec8098631547d58a797b2ad857c1',1,'gpio_config_t']]],
-  ['mux',['mux',['../structgpio__config__t.html#a517a0cd4125fcd45504b02d3c4a35d06',1,'gpio_config_t']]]
+  ['clock_5fsource',['clock_source',['../structtimer__advanced__t.html#a55f14952d0610532cd15723da39e3852',1,'timer_advanced_t']]]
 ];

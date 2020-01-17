@@ -1,3 +1,38 @@
+/*******************************************************************************
+* Title                 :   Timer Implementation for STM32F411
+* Filename              :   timer_stm32f411.c
+* Author                :   Marko Galevski
+* Origin Date           :   15/01/2020
+* Version               :   1.0.0
+* Compiler              :   GCC
+* Target                :   STM32F411VE (ARM Cortex M4)
+* Notes                 :   None
+*
+*
+*******************************************************************************/
+/****************************************************************************
+* Doxygen C Template
+* Copyright (c) 2013 - Jacob Beningo - All Rights Reserved
+*
+* Feel free to use this Doxygen Code Template at your own risk for your own
+* purposes.  The latest license and updates for this Doxygen C template can be
+* found at www.beningo.com or by contacting Jacob at jacob@beningo.com.
+*
+* For updates, free software, training and to stay up to date on the latest
+* embedded software techniques sign-up for Jacobs newsletter at
+* http://www.beningo.com/814-2/
+*
+* The above copyright notice and this permission notice shall be included in
+* all copies or substantial portions of the Template.
+*
+*****************************************************************************/
+
+/** @file timer_stm32f411.c
+ *  @brief Microcontroller specific implementation of timer functionality
+ */
+/******************************************************************************
+* Includes
+*******************************************************************************/
 #include "timer_interface.h"
 #include "timer_cc_interface.h" /* Only included on MCUs with CC timers */
 #include "stm32f411xe.h"
@@ -6,6 +41,10 @@
 #define NULL (void *)0
 #endif
 
+
+/**
+ *	Array of poiners to Control Register 1 registers
+ */
 static volatile uint32_t *const TIM_CR1[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE, (uint32_t *)TIM2_BASE, (uint32_t *)TIM3_BASE,
@@ -13,6 +52,9 @@ static volatile uint32_t *const TIM_CR1[NUM_TIMERS] =
 	(uint32_t *)TIM10_BASE, (uint32_t *)TIM11_BASE
 };
 
+/**
+ * Array of pointers to Control Register 2 registers
+ */
 static volatile uint32_t *const TIM_CR2[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x04UL, (uint32_t *)TIM2_BASE + 0x04UL,
@@ -21,6 +63,9 @@ static volatile uint32_t *const TIM_CR2[NUM_TIMERS] =
 	(uint32_t *) NULL, (uint32_t *) NULL, (uint32_t *) NULL
 };
 
+/**
+ * Array of pointers to Slave Mode Config registers
+ */
 static volatile uint32_t *const TIM_SMCR[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x08UL, (uint32_t *)TIM2_BASE + 0x08UL,
@@ -29,6 +74,9 @@ static volatile uint32_t *const TIM_SMCR[NUM_TIMERS] =
 	(uint32_t *) NULL, (uint32_t *) NULL
 };
 
+/**
+ * Array of pointers to DMA and Interrupt Enable registers
+ */
 static volatile uint32_t *const TIM_DIER[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x0CUL, (uint32_t *)TIM2_BASE + 0x0CUL,
@@ -37,6 +85,9 @@ static volatile uint32_t *const TIM_DIER[NUM_TIMERS] =
 	(uint32_t *)TIM10_BASE + 0x0CUL, (uint32_t *)TIM11_BASE + 0x0CUL
 };
 
+/**
+ * Array of pointers to Status registers
+ */
 static volatile uint32_t *const TIM_SR[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x10UL, (uint32_t *)TIM2_BASE + 0x10UL,
@@ -45,6 +96,9 @@ static volatile uint32_t *const TIM_SR[NUM_TIMERS] =
 	(uint32_t *)TIM10_BASE + 0x10UL, (uint32_t *)TIM11_BASE + 0x10UL
 };
 
+/**
+ * Array of pointers to Event Generation registers
+ */
 static volatile uint32_t *const TIM_EGR[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x14UL, (uint32_t *)TIM2_BASE + 0x14UL,
@@ -53,6 +107,9 @@ static volatile uint32_t *const TIM_EGR[NUM_TIMERS] =
 	(uint32_t *)TIM10_BASE + 0x14UL, (uint32_t *)TIM11_BASE + 0x14UL
 };
 
+/**
+ * Array of pointers to Capture and Compare Mode Register 1 registers
+ */
 static volatile uint32_t *const TIM_CCMR1[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x18UL, (uint32_t *)TIM2_BASE + 0x18UL,
@@ -61,6 +118,9 @@ static volatile uint32_t *const TIM_CCMR1[NUM_TIMERS] =
 	(uint32_t *)TIM10_BASE + 0x18UL, (uint32_t *)TIM11_BASE + 0x18UL
 };
 
+/**
+ * Array of pointers to Capture and Compare Mode Register 2 registers
+ */
 static volatile uint32_t *const TIM_CCMR2[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x1CUL, (uint32_t *)TIM2_BASE + 0x1CUL,
@@ -69,6 +129,9 @@ static volatile uint32_t *const TIM_CCMR2[NUM_TIMERS] =
 	(uint32_t *)NULL, (uint32_t *)NULL
 };
 
+/**
+ *	Array of pointers to Capture and Compare Enable regsiters
+ */
 static volatile uint32_t *const TIM_CCER[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x20UL, (uint32_t *)TIM2_BASE + 0x20UL,
@@ -77,6 +140,9 @@ static volatile uint32_t *const TIM_CCER[NUM_TIMERS] =
 	(uint32_t *)TIM10_BASE + 0x20UL, (uint32_t *)TIM11_BASE + 0x20UL
 };
 
+/**
+ * Array of pointers to Count registers
+ */
 static volatile uint32_t *const TIM_CNT[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x24UL, (uint32_t *)TIM2_BASE + 0x24UL,
@@ -85,6 +151,9 @@ static volatile uint32_t *const TIM_CNT[NUM_TIMERS] =
 	(uint32_t *)TIM10_BASE + 0x24UL, (uint32_t *)TIM11_BASE + 0x24UL
 };
 
+/**
+ * Array of pointers to Prescaler registers
+ */
 static volatile uint16_t *const TIM_PSC[NUM_TIMERS] =
 {
 	(uint16_t *)TIM1_BASE + 0x28UL, (uint16_t *)TIM2_BASE + 0x28UL,
@@ -93,6 +162,9 @@ static volatile uint16_t *const TIM_PSC[NUM_TIMERS] =
 	(uint16_t *)TIM10_BASE + 0x28UL, (uint16_t *)TIM11_BASE + 0x28UL
 };
 
+/**
+ * Array of pointers to Auto Reload registers
+ */
 static volatile uint32_t *const TIM_ARR[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x2CUL, (uint32_t *)TIM2_BASE + 0x2CUL,
@@ -101,6 +173,9 @@ static volatile uint32_t *const TIM_ARR[NUM_TIMERS] =
 	(uint32_t *) NULL, (uint32_t *) NULL
 };
 
+/**
+ * Array of registers to Repetition Counter registers
+ */
 static volatile uint32_t *const TIM_RCR[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x30UL, (uint32_t *)NULL,
@@ -109,7 +184,9 @@ static volatile uint32_t *const TIM_RCR[NUM_TIMERS] =
 	(uint32_t *) NULL, (uint32_t *) NULL
 };
 
-//COMPOSITE REGISTER CONSISTING OF ALL CCR REGISTERS
+/**
+ * Composite array of pointers to all Capture and Compare registers
+ */
 static volatile uint32_t *const TIM_CCR[NUM_CCRS] =
 {
 	/*TIM1*/ (uint32_t *)TIM1_BASE + 0x34UL, (uint32_t *)TIM1_BASE + 0x38UL,
@@ -134,6 +211,9 @@ static volatile uint32_t *const TIM_CCR[NUM_CCRS] =
 	/*TIM11*/(uint32_t *)TIM11_BASE + 0x34UL
 };
 
+/**
+ * Array of pointers to Break and Dead Time registers
+ */
 static volatile uint32_t *const TIM_BDTR[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x44UL, (uint32_t *) NULL,
@@ -142,6 +222,9 @@ static volatile uint32_t *const TIM_BDTR[NUM_TIMERS] =
 	(uint32_t *) NULL, (uint32_t *) NULL
 };
 
+/**
+ * Array of pointers to DMA Control registers
+ */
 static volatile uint32_t *const TIM_DCR[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x48UL, (uint32_t *)TIM2_BASE + 0x48UL,
@@ -150,6 +233,9 @@ static volatile uint32_t *const TIM_DCR[NUM_TIMERS] =
 	(uint32_t *) NULL, (uint32_t *) NULL
 };
 
+/**
+ * Array of pointers to DMA Address registers
+ */
 static volatile uint32_t *const TIM_DMAR[NUM_TIMERS] =
 {
 	(uint32_t *)TIM1_BASE + 0x4C, (uint32_t *)TIM2_BASE + 0x4C,
@@ -158,6 +244,9 @@ static volatile uint32_t *const TIM_DMAR[NUM_TIMERS] =
 	(uint32_t *) NULL, (uint32_t *) NULL
 };
 
+/**
+ * Array of pointers to Option registers
+ */
 static volatile uint32_t *const TIM_OR[NUM_TIMERS] =
 {
 	(uint32_t *) NULL, (uint32_t *)TIM2_BASE + 0x50UL,
@@ -165,6 +254,11 @@ static volatile uint32_t *const TIM_OR[NUM_TIMERS] =
 	(uint32_t *)TIM5_BASE + 0x50UL, (uint32_t *) NULL,
 	(uint32_t *) NULL, (uint32_t *) TIM11_BASE + 0x50UL
 };
+
+
+static void timer_init_external_mode_1(timer_t timer, timer_config_t *config);
+static void timer_init_external_mode_2(timer_t timer, timer_config_t *config);
+static void timer_init_slave_mode(timer_t timer, timer_config_t *config);
 
 void timer_init(timer_config_t *config_table)
 {
@@ -174,18 +268,21 @@ void timer_init(timer_config_t *config_table)
 
 		if (sizeof(config_table[timer]) != 0)
 		{
+			*TIM_SMCR[timer] &= ~(TIM_SMCR_SMS_Msk);
 
-			if (config_table[timer].clock_source == INTERNAL_CLOCK)
+
+
+			if (config_table[timer].advanced != NULL)
 			{
-				*TIM_SMCR[timer] &= ~(TIM_SMCR_SMS_Msk);
-			}
-			else if (config_table[timer].clock_source == EXTERNAL_MODE_1)
-			{
-				*TIM_SMCR[timer] |= TIM_SMCR_SMS_Msk;
-			}
-			else if (config_table[timer].clock_source == EXTERNAL_MODE_2)
-			{
-				*TIM_SMCR[timer] |= TIM_SMCR_ECE_Msk;
+				if (config_table[timer].advanced->clock_source == EXTERNAL_MODE_1)
+				{
+					timer_init_external_mode_1(timer, &config_table[timer]);
+				}
+				else if (config_table[timer].advanced->clock_source == EXTERNAL_MODE_2)
+				{
+					timer_init_external_mode_2(timer, &config_table[timer]);
+				}
+				timer_init_slave_mode(timer, &config_table[timer]);
 			}
 
 			*TIM_CR1[timer] &= ~(TIM_CR1_CMS_Msk);
@@ -202,14 +299,75 @@ void timer_init(timer_config_t *config_table)
 			*TIM_CR1[timer] |= (config_table[timer].auto_reload_preload_en) << TIM_CR1_ARPE_Pos;
 
 			*TIM_CR1[timer] &= ~(TIM_CR1_OPM_Msk);
-			*TIM_CR1[timer] |= (config_table[timer].advanced->one_pulse_mode) << TIM_CR1_OPM_Pos;
-
 			*TIM_CR1[timer] &= ~(TIM_CR1_UDIS_Msk);
+			if (config_table[timer].advanced != NULL)
+			{
+			*TIM_CR1[timer] |= (config_table[timer].advanced->one_pulse_mode) << TIM_CR1_OPM_Pos;
 			*TIM_CR1[timer] |= (config_table[timer].advanced->update_event_dis) << TIM_CR1_UDIS_Pos;
+			}
 		}
 	}
 
 }
+
+static void timer_init_external_mode_1(timer_t timer, timer_config_t *config)
+{
+
+	*TIM_SMCR[timer] |= TIM_SMCR_SMS_Msk;
+
+	*TIM_SMCR[timer] &= ~(TIM_SMCR_TS_Msk);
+	*TIM_SMCR[timer] |= config->advanced->trigger_source << TIM_SMCR_TS_Pos;
+
+	*TIM_SMCR[timer] &= ~(TIM_SMCR_MSM_Msk);
+	*TIM_SMCR[timer] |= config->advanced->msm << TIM_SMCR_MSM_Pos;
+}
+
+
+static void timer_init_external_mode_2(timer_t timer, timer_config_t *config)
+{
+	assert(config->advanced->external_trigger != NULL);
+	*TIM_SMCR[timer] |= TIM_SMCR_ECE_Msk;
+
+	*TIM_SMCR[timer] &= ~(TIM_SMCR_ETP_Msk);
+	*TIM_SMCR[timer] |= config->advanced->external_trigger->polarity << TIM_SMCR_ETP_Pos;
+
+	*TIM_CR1[timer] &= ~(TIM_CR1_CKD_Msk);
+	*TIM_CR1[timer] |= config->advanced->external_trigger->dts << TIM_CR1_CKD_Pos;
+
+	*TIM_SMCR[timer] &= ~(TIM_SMCR_ETPS_Msk);
+	*TIM_SMCR[timer] |= config->advanced->external_trigger->prescaler << TIM_SMCR_ETPS_Pos;
+
+	*TIM_SMCR[timer] &= ~(TIM_SMCR_ETF_Msk);
+	*TIM_SMCR[timer] |= config->advanced->external_trigger->filter << TIM_SMCR_ETF_Pos;
+
+	*TIM_SMCR[timer] &= ~(TIM_SMCR_MSM_Msk);
+	*TIM_SMCR[timer] |= config->advanced->msm << TIM_SMCR_MSM_Pos;
+}
+
+static void timer_init_slave_mode(timer_t timer, timer_config_t *config)
+{
+	if (config->advanced->slave_mode >= ENCODER_MODE_1 && config->advanced->slave_mode <= ENCODER_MODE_3)
+		/**< The entire Encoder Mode Behaviour is hard-coded. For flexibility,
+		 * read RM0383 12.3.16 and modify as needed
+		 * */
+	{
+		*TIM_CCMR1[timer] |= 0x01UL << TIM_CCMR1_CC1S_Pos;
+		*TIM_CCMR1[timer] |= 0x01UL << TIM_CCMR1_CC2S_Pos;
+
+		*TIM_CCER[timer]  &= ~(TIM_CCER_CC1P_Msk | TIM_CCER_CC1NP_Msk
+								| TIM_CCER_CC2P_Msk | TIM_CCER_CC2NP_Msk);
+
+		*TIM_CCMR1[timer] &= ~(TIM_CCMR1_IC1F_Msk | TIM_CCMR1_IC2F_Msk);
+	}
+	else
+	{
+		*TIM_SMCR[timer] &= ~(TIM_SMCR_TS_Msk);
+		*TIM_SMCR[timer] |= config->advanced->trigger_source << TIM_SMCR_TS_Pos;
+	}
+
+	*TIM_SMCR[timer] |= config->advanced->slave_mode << TIM_SMCR_SMS_Pos;
+}
+
 
 void timer_control(timer_t timer, timer_control_t signal)
 {
@@ -238,6 +396,19 @@ void timer_prescaler_set(timer_t timer, timer_prescaler_t prescaler)
 timer_prescaler_t timer_prescaler_get(timer_t timer)
 {
 	return (*TIM_PSC[timer]);
+}
+
+
+void timer_interrupt_control(timer_t timer, timer_interrupt_t interrupt, timer_interrupt_control_t signal)
+{
+	if (signal == INTERRUPT_ENABLE)
+	{
+		*TIM_DIER[timer] |= 0x01UL << interrupt;
+	}
+	else if (signal == INTERRUPT_DISABLE)
+	{
+		*TIM_DIER[timer] &= ~(0x01UL << interrupt);
+	}
 }
 
 void timer_register_write(timer_t timer, uint32_t timer_register, uint32_t value)
@@ -485,4 +656,3 @@ static void timer_cc_init_input(timer_cc_t timer_cc, timer_cc_config_t *config)
 }
 
 #endif
-

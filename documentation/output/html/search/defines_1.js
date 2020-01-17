@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['modery_5fwidth',['MODERy_WIDTH',['../gpio__stm32f411_8c.html#a5e79a132891546dc445fdb7da50aac05',1,'gpio_stm32f411.c']]]
+  ['enabled',['ENABLED',['../timer__interface_8h.html#a73c228f87e038e8295ee8ea8eceaa5ac',1,'timer_interface.h']]]
 ];

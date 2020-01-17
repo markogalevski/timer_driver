@@ -1,0 +1,7 @@
+<map id="/home/marko/Documents/embedded_workspace/timer_driver/timer_stm32f411_config.h" name="/home/marko/Documents/embedded_workspace/timer_driver/timer_stm32f411_config.h">
+<area shape="rect" id="node2" href="$timer__cc__stm32f411__config_8h_source.html" title="/home/marko/Documents\l/embedded_workspace/timer\l_driver/timer_cc_stm32f411\l_config.h" alt="" coords="25,124,215,195"/>
+<area shape="rect" id="node5" href="$timer__interface_8h.html" title="General interface covering user accesses to a timer&#39;s timebase functionality. " alt="" coords="219,243,408,299"/>
+<area shape="rect" id="node6" href="$timer__stm32f411__config_8c.html" title="Collection of configuration tables used to configure a timer. Config_table is the one you&#39;ll probably..." alt="" coords="329,124,519,195"/>
+<area shape="rect" id="node3" href="$timer__cc__interface_8h_source.html" title="/home/marko/Documents\l/embedded_workspace/timer\l_driver/timer_cc_interface.h" alt="" coords="5,243,195,299"/>
+<area shape="rect" id="node4" href="$timer__stm32f411_8c.html" title="Microcontroller specific implementation of timer functionality. " alt="" coords="112,347,301,403"/>
+</map>
