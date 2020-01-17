@@ -98,8 +98,6 @@ $(document).ready(function(){initNavTree('timer__stm32f411__config_8h.html','');
 Include dependency graph for timer_stm32f411_config.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="timer__stm32f411__config_8h__incl.png" border="0" usemap="#_2home_2marko_2_documents_2embedded__workspace_2timer__driver_2timer__stm32f411__config_8h" alt=""/></div>
-<map name="_2home_2marko_2_documents_2embedded__workspace_2timer__driver_2timer__stm32f411__config_8h" id="_2home_2marko_2_documents_2embedded__workspace_2timer__driver_2timer__stm32f411__config_8h">
-</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -709,7 +707,7 @@ Functions</h2></td></tr>
 <p>POST-CONDITION: The returned value points to the base of the config table</p>
 <dl class="section return"><dt>Returns</dt><dd>const <a class="el" href="structtimer__config__t.html">timer_config_t</a> *</dd></dl>
 <p><b>Note:</b> To configure a timer, visit the config_table array in timer_stm32f411_conig.c and set all the elements of the corresponding structure. e.g. </p><div class="fragment"><div class="line"><span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="structtimer__config__t.html">timer_config_t</a> config_table[<a class="code" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>] =</div><div class="line">{</div><div class="line">...</div><div class="line">TIM4 {EXTERNAL_MODE1, <a class="code" href="timer__stm32f411__config_8h.html#abb5efc3c1f8736b4899df6a8074bd438af3c1d4131a7a33da9beb4e6e96e04e7b">ENCODER_MODE_1</a>, <a class="code" href="timer__stm32f411__config_8h.html#ae37409dab06497b7b24105e0cbc8bb09acd72e0e95fe2a0154c9a9c07ec3b4d37">CENTER_ALIGNED_3</a>, 0, 15934, 775, <a class="code" href="timer__interface_8h.html#a73c228f87e038e8295ee8ea8eceaa5ac">ENABLED</a>, 0},</div><div class="line">...</div><div class="line">}</div></div><!-- fragment --><p> <b>Example:</b> </p>
-<div class="fragment"><div class="line"><span class="keyword">const</span> <a class="code" href="structtimer__config__t.html">timer_config_t</a> *timer_config_table = <a class="code" href="timer__stm32f411__config_8c.html#a85ad761f6ad6a260bfb109bce8f88a21">timer_config_get</a>(<span class="keywordtype">void</span>);</div><div class="line">timer_init(timer_config_table);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>timer_init</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <a class="code" href="structtimer__config__t.html">timer_config_t</a> *timer_config_table = <a class="code" href="timer__stm32f411__config_8c.html#a85ad761f6ad6a260bfb109bce8f88a21">timer_config_get</a>(<span class="keywordtype">void</span>);</div><div class="line"><a class="code" href="timer__interface_8h.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a>(timer_config_table);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a></dd></dl>
 <p><br />
 <b> - CHANGE HISTORY - </b></p>
 <table align="left" style="width:800px">

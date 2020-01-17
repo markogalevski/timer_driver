@@ -260,6 +260,47 @@ static void timer_init_external_mode_1(timer_t timer, timer_config_t *config);
 static void timer_init_external_mode_2(timer_t timer, timer_config_t *config);
 static void timer_init_slave_mode(timer_t timer, timer_config_t *config);
 
+/******************************************************************************
+* Function: timer_init()
+*//**
+* \b Description:
+*
+* This function is used to initialise the timer based on the configuration table
+*  defined in the timer_stm32f411_config.c
+*
+* PRE-CONDITION: Configuration table needs to populated (sizeof > 0) <br>
+* PRE-CONDITION (conditional): If using advanced features, the advanced pointer for the appropriate
+* 					timer must be non-null
+* PRE-CONDITION (conditional): If using external triggers or TI1/TI2 triggers, the gpio pins must
+* 								me configured with appropriate AF settings
+* PRE-CONDITION (condtional): If using external triggers, the external_trigger pointer in the advanced
+* 								structure must be non-null
+* PRE-CONDITION: The RCC clocks for all planned timers must be configured and enabled.
+*
+* POST-CONDITION: The timers are ready for use.
+*
+* @param  		config_table is a pointer to the configuration table that contains
+*				the initialisation structures for each timer.
+*
+* @return 		void
+*
+* \b Example:
+* @code
+* 	const timer_config_t *timer_config = timer_config_get();
+*		timer_init(timer_config);
+* @endcode
+*
+* @see timer_config_get
+* @see timer_init_external_mode_1
+* @see timer_init_external_mode_2
+* @see timer_init_slave_mode
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 void timer_init(timer_config_t *config_table)
 {
 	for (int timer; timer < NUM_TIMERS; timer++)
@@ -310,6 +351,46 @@ void timer_init(timer_config_t *config_table)
 
 }
 
+/******************************************************************************
+* Function: timer_init_external_mode_1()
+*//**
+* \b Description:
+*
+* This function is statically called to set the timer's clock source to the selected
+* 	on-chip trigger source or TIMx_CH1 (TI1) TIMx_CH2(TI2), as well as changing
+* 	the master/slave bit, if so desired.
+*
+* PRE-CONDITION: The advanced pointer for the appropriate timer must be non-null
+* PRE-CONDITION (conditional): If using TI1/TI2 triggers, the gpio pins must
+* 								me configured with appropriate AF settings
+
+*
+* POST-CONDITION: The timer is now clocked by the selected trigger
+*
+*
+* @param		timer refers to any timer present on-chip
+*
+* @param  		config_table is a pointer to the config struct that matches
+* 					timer
+*
+* @return 		void
+*
+* \b Example:
+* Automatically called by timer_init if
+* @code
+*	config_table[timer]->advanced->clock_source == EXTERNAL_MODE_1
+* @endcode
+*
+* @see timer_init
+* @see timer_init_external_mode_2
+* @see timer_init_slave_mode
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 static void timer_init_external_mode_1(timer_t timer, timer_config_t *config)
 {
 
@@ -322,7 +403,45 @@ static void timer_init_external_mode_1(timer_t timer, timer_config_t *config)
 	*TIM_SMCR[timer] |= config->advanced->msm << TIM_SMCR_MSM_Pos;
 }
 
-
+/******************************************************************************
+* Function: timer_init_external_mode_2()
+*//**
+* \b Description:
+*
+* This function is statically called to set the timer's clock source to the selected
+* 	off-chip trigger source (ETR pin).
+*
+* PRE-CONDITION: The advanced pointer for the appropriate timer must be non-null
+* PRE-CONDITION: The external_trgger pointer in advanced must be non-null
+* PRE-CONDITION: The desired ETR pin has the correct AF configuration through gpio_init
+*
+* POST-CONDITION: The timer is now clocked by the selected external trigger with
+* 					the desired filtration and sampling characeristics.
+*
+*
+* @param		timer refers to any timer present on-chip
+*
+* @param  		config_table is a pointer to the config struct that matches
+* 					timer
+*
+* @return 		void
+*
+* \b Example:
+* Automatically called by timer_init if
+* @code
+*	config_table[timer]->advanced->clock_source == EXTERNAL_MODE_2
+* @endcode
+*
+* @see timer_init
+* @see timer_init_external_mode_1
+* @see timer_init_slave_mode
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 static void timer_init_external_mode_2(timer_t timer, timer_config_t *config)
 {
 	assert(config->advanced->external_trigger != NULL);
@@ -344,6 +463,51 @@ static void timer_init_external_mode_2(timer_t timer, timer_config_t *config)
 	*TIM_SMCR[timer] |= config->advanced->msm << TIM_SMCR_MSM_Pos;
 }
 
+/******************************************************************************
+* Function: timer_init_slave_mode()
+*//**
+* \b Description:
+*
+* This function is statically called to set the timer's slave behaviour to that defined
+* 	in the advanced pointer. Includes various encoder modes, reset, gated, and trigger modes.
+*
+* \b Note:
+*
+* 	The encoders' behaviours are hard-coded for the time being. The inclusion of yet another
+* 		encoder_settings sub-structure may be necessary, but as of now it's not included.
+*
+* PRE-CONDITION: The advanced pointer for the appropriate timer must be non-null
+* PRE-CONDITION (conditional): If the trigger source is ETRF, the desired ETR pin has
+* 						the correct AF configuration through gpio_init
+* PRE-CONDITION (conditional): If encoder modes or TI1 and TI2 are explicitly selected as trigger,
+* 								the must be correctly AF configured through gpio_init
+*
+* POST-CONDITION: The timer is now in the desired slave mode.
+*
+*
+* @param		timer refers to any timer present on-chip
+*
+* @param  		config_table is a pointer to the config struct that matches
+* 					timer
+*
+* @return 		void
+*
+* \b Example:
+* Automatically called by timer_init if
+* @code
+* 	config->advanced != NULL
+* @endcode
+*
+* @see timer_init
+* @see timer_init_external_mode_1
+* @see timer_init_external_mode_2
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 static void timer_init_slave_mode(timer_t timer, timer_config_t *config)
 {
 	if (config->advanced->slave_mode >= ENCODER_MODE_1 && config->advanced->slave_mode <= ENCODER_MODE_3)
@@ -368,7 +532,40 @@ static void timer_init_slave_mode(timer_t timer, timer_config_t *config)
 	*TIM_SMCR[timer] |= config->advanced->slave_mode << TIM_SMCR_SMS_Pos;
 }
 
-
+/******************************************************************************
+* Function: timer_control()
+*//**
+* \b Description:
+*
+* This function is used to start or stop the counter.
+*
+* PRE-CONDITION: The timer has been successfully initiated through timer_init()
+*
+* POST-CONDITION: The timer has started/stop, as per the signal
+*
+*
+* @param		timer refers to any timer present on-chip
+*
+* @param		signal determines whether the timer stops or starts
+*
+* @return 		void
+*
+* \b Example:
+* @code
+* 	timer_init(config);
+* 	timer_control(TIMER4, TIMER_START);
+* @endcode
+*
+* @see timer_init
+* @see timer_read
+* @see timer_interrupt_control
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 void timer_control(timer_t timer, timer_control_t signal)
 {
 	if (signal == TIMER_START)
@@ -382,25 +579,101 @@ void timer_control(timer_t timer, timer_control_t signal)
 
 }
 
+/******************************************************************************
+* Function: timer_read()
+*//**
+* \b Description:
+*
+* This function returns the contents of a timer's CNT register
+*
+* \b Note:
+* Technically the function works without starting the timer, but that's useless
+*
+* PRE-CONDITION: The timer has been successfully initiated through timer_init()
+*
+* POST-CONDITION: The function has returned the current contents of CNT
+*
+*
+* @param		timer refers to any timer present on-chip
+*
+*
+* @return 		uint32_t
+*
+* \b Example:
+* @code
+* 	uint32_t curr_value = timer_read(TIMER9);
+* @endcode
+*
+* @see timer_control
+* @see timer_interrupt_control
+* @see timer_prescaler_set
+* @see timer_prescaler_get
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 uint32_t timer_read(timer_t timer)
 {
 	return (*TIM_CNT[timer]);
 }
 
-
-void timer_prescaler_set(timer_t timer, timer_prescaler_t prescaler)
-{
-	*TIM_PSC[timer] = prescaler;
-}
-
-timer_prescaler_t timer_prescaler_get(timer_t timer)
-{
-	return (*TIM_PSC[timer]);
-}
-
-
+/******************************************************************************
+* Function: timer_interrupt_control()
+*//**
+* \b Description:
+*
+* 	Activates or deactivates the selected interrupt
+*
+*
+* PRE-CONDITION: The timer has been successfully initiated through timer_init()
+* PRE-CONDITION: The requested interrupt is actually available on the selected timer.
+*
+* POST-CONDITION: The selected interrupt is enabled/disabled
+*
+*
+* @param		timer refers to any timer present on-chip
+*
+* @param		interrupt refers to the selected interrupt type
+*
+* @param		signal decides whether the interrupt is enabled or disabled
+*
+* @return 		void
+*
+* \b Example:
+* @code
+* 	timer_init(config);
+* 	timer_interrupt_control(TIMER1, UPDATE_INTERRUPT, INTERRUPT_ENABLE);
+* 	timer_control(TIMER1, TIMER_START);
+* @endcode
+*
+* @see timer_control
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 void timer_interrupt_control(timer_t timer, timer_interrupt_t interrupt, timer_interrupt_control_t signal)
 {
+	/**check for invalid combinations */
+
+	/** Only timer 1 has BREAK and COM */
+	assert(!(interrupt == BREAK_INTERRUPT && timer != TIMER1));
+	assert(!(interrupt == COM_INTERRUPT && timer != TIMER1));
+
+	/**Timers 9/10/11 don't have CCs 3 and 4 */
+	assert(!((interrupt == CC3_INTERRUPT || interrupt == CC4_INTERRUPT)
+				&& (timer >= TIMER9)));
+	/** Timers 10/11 don't have CC2 either */
+	assert(!(interrupt == CC2_INTERRUPT && timer >= TIMER10));
+
+	/** Timers 10 and 11 don't have trigger interrrupts*/
+	assert(!(interrupt == TRIGGER_INTERRUPT && timer >= TIMER10));
+
 	if (signal == INTERRUPT_ENABLE)
 	{
 		*TIM_DIER[timer] |= 0x01UL << interrupt;
@@ -411,7 +684,130 @@ void timer_interrupt_control(timer_t timer, timer_interrupt_t interrupt, timer_i
 	}
 }
 
-void timer_register_write(timer_t timer, uint32_t timer_register, uint32_t value)
+/******************************************************************************
+* Function: timer_prescaler_set()
+*//**
+* \b Description:
+*
+* 	Sets the prescaler value "on the fly"
+*
+*
+* PRE-CONDITION: The timer has been successfully initiated through timer_init()
+*
+* POST-CONDITION: The timer's clock is divided by the new prescaler
+*
+*
+* @param		timer refers to any timer present on-chip
+*
+* @param		prescaler is a uint16_t value
+*
+* @return 		void
+*
+* \b Example:
+* @code
+*	//On the fly changes of the prescaler
+* 	timer_init(config);
+* 	timer_prescaler_set(TIMER5, 3200);
+* 	timer_control(TIMER5, TIMER_START);
+* 	while (timer_read(TIMER5) < 300);
+* 	timer_prescaler_set(TIMER5, 5000);
+* @endcode
+*
+* @see timer_control
+* @see timer_prescaler_get
+* @see timer_interrupt_control
+* @see timer_read
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+void timer_prescaler_set(timer_t timer, timer_prescaler_t prescaler)
+{
+	*TIM_PSC[timer] = prescaler;
+}
+
+/******************************************************************************
+* Function: timer_prescaler_get()
+*//**
+* \b Description:
+*
+* 	Gets the prescaler value
+*
+*
+* PRE-CONDITION: The timer has been successfully initiated through timer_init()
+*
+* POST-CONDITION: The timer's current prescaler value (TIMx_PSC) is returned
+*
+*
+* @param		timer refers to any timer present on-chip
+*
+*
+* @return 		timer_prescaler_t (uint16_t)
+*
+* \b Example:
+* @code
+*	timer_prescaler_t curr_prescaler_timer3 = timer_prescaler_get(TIMER3);
+* @endcode
+*
+* @see timer_control
+* @see timer_prescaler_set
+* @see timer_interrupt_control
+* @see timer_read
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+timer_prescaler_t timer_prescaler_get(timer_t timer)
+{
+	return (*TIM_PSC[timer]);
+}
+
+/******************************************************************************
+* Function: timer_register_write()
+*//**
+* \b Description:
+*
+* 	Writes the desired value into the desired timer address space register. It is the
+* 	user's own responisibility to consult the RM0383 to ensure that no reserved bits are
+* 	overwritten, etc.
+* 	Intended to be used alongside timer_register_read() to create composite advanced user functions
+*
+*
+* PRE-CONDITION: The address does in fact lie in the address space of any timer.
+*
+* POST-CONDITION: The desired register's contents now reflect "value"
+*
+*
+* @param		timer_register is a uint32_t which is cast as a 32bit address
+*
+* @param		value is an (up to) uint32_t value which is written to the desired register
+*
+* @return 		void
+*
+* \b Example:
+* @code
+*	uint32_t dier_timer3 = timer_register_read(TIM3_BASE + 0x0C); //get current value
+*	dier_timer3 &= ~(0x01UL << TIM_DIER_CC3DE_Pos); //clear the DMA request on CC3 bit
+*	timer_register_write(TIM3_BASE + 0x0C, dier_timer3);
+*
+* @endcode
+*
+* @see timer_register_read
+* @see timer_read
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+void timer_register_write(uint32_t timer_register, uint32_t value)
 {
 	assert(    (timer_register >= TIM2_BASE && timer_register < RTC_BASE)
 			|| (timer_register >= TIM1_BASE && timer_register < USART1_BASE)
@@ -420,7 +816,45 @@ void timer_register_write(timer_t timer, uint32_t timer_register, uint32_t value
 	*((uint32_t *)timer_register) = value;
 }
 
-uint32_t timer_register_read(timer_t timer, uint32_t timer_register)
+/******************************************************************************
+* Function: timer_register_reads()
+*//**
+* \b Description:
+*
+* 	Read the current value of the register in timer address. It is the
+* 	user's own responisibility to consult the RM0383 to ensure that no reserved bits are
+* 	overwritten, etc.
+* 	Intended to be used alongside timer_register_write() to create composite advanced user functions
+*
+*
+* PRE-CONDITION: The address does in fact lie in the address space of any timer.
+*
+* POST-CONDITION: The register's current contents are returned
+*
+*
+* @param		timer_register is a uint32_t which is cast as a 32bit address
+*
+*
+* @return 		uint32_t timer_register's contents
+*
+* \b Example:
+* @code
+*	uint32_t dier_timer3 = timer_register_read(TIM3_BASE + 0x0C); //get current value
+*	dier_timer3 &= ~(0x01UL << TIM_DIER_CC3DE_Pos); //clear the DMA request on CC3 bit
+*	timer_register_write(TIM3_BASE + 0x0C, dier_timer3);
+*
+* @endcode
+*
+* @see timer_register_write
+* @see timer_read
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+uint32_t timer_register_read(uint32_t timer_register)
 {
 	assert(    (timer_register >= TIM2_BASE && timer_register < RTC_BASE)
 				|| (timer_register >= TIM1_BASE && timer_register < USART1_BASE)

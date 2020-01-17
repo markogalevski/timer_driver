@@ -82,8 +82,8 @@ void timer_prescaler_set(timer_t timer, timer_prescaler_t prescaler);
 timer_prescaler_t timer_prescaler_get(timer_t timer);
 void timer_interrupt_control(timer_t timer, timer_interrupt_t interrupt, timer_interrupt_control_t signal);
 
-void timer_register_write(timer_t timer, uint32_t timer_register, uint32_t value);
-uint32_t timer_register_read(timer_t timer, uint32_t timer_register);
+void timer_register_write(uint32_t timer_register, uint32_t value);
+uint32_t timer_register_read(uint32_t timer_register);
 
 
 

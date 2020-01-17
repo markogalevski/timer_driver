@@ -16,6 +16,6 @@ var timer__interface_8h =
     [ "timer_prescaler_get", "timer__interface_8h.html#a89d3a8c691d0102896a6bb77cc5e99af", null ],
     [ "timer_prescaler_set", "timer__interface_8h.html#a5ab0da8b3f4f700a3ef6180171357eaf", null ],
     [ "timer_read", "timer__interface_8h.html#acab33b496b3f6a743fc5a34983b163e4", null ],
-    [ "timer_register_read", "timer__interface_8h.html#a2b78f9b3057cff634e3698dcd526045b", null ],
-    [ "timer_register_write", "timer__interface_8h.html#afcc74f2e967c1034311be1e12ef15022", null ]
+    [ "timer_register_read", "timer__interface_8h.html#ac56c138635e13a17b99b30f9bf7897ab", null ],
+    [ "timer_register_write", "timer__interface_8h.html#a2626875b0c6d119e973e9e6f51246de0", null ]
 ];
