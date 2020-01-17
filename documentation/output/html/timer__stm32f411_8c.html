@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('timer__stm32f411_8c.html','');});
 <p>Microcontroller specific implementation of timer functionality.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="timer__interface_8h_source.html">timer_interface.h</a>&quot;</code><br />
-<code>#include &quot;timer_cc_interface.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="timer__cc__interface_8h_source.html">timer_cc_interface.h</a>&quot;</code><br />
 <code>#include &quot;stm32f411xe.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for timer_stm32f411.c:</div>
@@ -98,9 +98,9 @@ Include dependency graph for timer_stm32f411.c:</div>
 <div class="center"><img src="timer__stm32f411_8c__incl.png" border="0" usemap="#_2home_2marko_2_documents_2embedded__workspace_2timer__driver_2timer__stm32f411_8c" alt=""/></div>
 <map name="_2home_2marko_2_documents_2embedded__workspace_2timer__driver_2timer__stm32f411_8c" id="_2home_2marko_2_documents_2embedded__workspace_2timer__driver_2timer__stm32f411_8c">
 <area shape="rect" id="node2" href="timer__interface_8h.html" title="General interface covering user accesses to a timer&#39;s timebase functionality. " alt="" coords="86,191,204,218"/>
-<area shape="rect" id="node6" href="timer__cc__interface_8h_source.html" title="timer_cc_interface.h" alt="" coords="131,109,271,136"/>
+<area shape="rect" id="node6" href="timer__cc__interface_8h.html" title="General interface covering user accesses to a timer&#39;s capture and compare functionality. " alt="" coords="131,109,271,136"/>
 <area shape="rect" id="node3" href="timer__stm32f411__config_8h.html" title="Microcontroller specific header containing typedefs for all relevant config options. " alt="" coords="174,273,346,300"/>
-<area shape="rect" id="node7" href="timer__cc__stm32f411__config_8h_source.html" title="timer_cc_stm32f411\l_config.h" alt="" coords="267,184,407,225"/>
+<area shape="rect" id="node7" href="timer__cc__stm32f411__config_8h.html" title="Chip specific header containing requisite enums and structs for proper configuration. " alt="" coords="267,184,407,225"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -126,16 +126,16 @@ Functions</h2></td></tr>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_init</b> (<a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *config_table)</td></tr>
 <tr class="separator:a13a61845be60c77f415b9b75dc3161cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa80cfe52f16e2a75a98f16d09a40921a"><td class="memItemLeft" align="right" valign="top"><a id="aa80cfe52f16e2a75a98f16d09a40921a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_control</b> (timer_cc_t timer_cc, <a class="el" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973">timer_control_t</a> signal)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_control</b> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, <a class="el" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973">timer_control_t</a> signal)</td></tr>
 <tr class="separator:aa80cfe52f16e2a75a98f16d09a40921a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2471e672cf49d7fd9c3410964b11e4e1"><td class="memItemLeft" align="right" valign="top"><a id="a2471e672cf49d7fd9c3410964b11e4e1"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_read</b> (timer_cc_t timer_cc)</td></tr>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_read</b> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc)</td></tr>
 <tr class="separator:a2471e672cf49d7fd9c3410964b11e4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa4d47f68508e258761dcd64d91527266"><td class="memItemLeft" align="right" valign="top"><a id="aa4d47f68508e258761dcd64d91527266"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_write</b> (timer_cc_t timer_cc, uint32_t value)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_write</b> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, uint32_t value)</td></tr>
 <tr class="separator:aa4d47f68508e258761dcd64d91527266"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2161da0bfaf8291335efc4af62abfbf"><td class="memItemLeft" align="right" valign="top"><a id="af2161da0bfaf8291335efc4af62abfbf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_pwm_duty_cycle_set</b> (timer_cc_t timer_cc, uint32_t duty_cycle_pcnt)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_pwm_duty_cycle_set</b> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, uint32_t duty_cycle_pcnt)</td></tr>
 <tr class="separator:af2161da0bfaf8291335efc4af62abfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

@@ -1,0 +1,5 @@
+<map id="/home/marko/Documents/embedded_workspace/timer_driver/timer_cc_stm32f411_config.h" name="/home/marko/Documents/embedded_workspace/timer_driver/timer_cc_stm32f411_config.h">
+<area shape="rect" id="node2" href="$timer__cc__interface_8h.html" title="General interface covering user accesses to a timer&#39;s capture and compare functionality. " alt="" coords="5,131,195,187"/>
+<area shape="rect" id="node4" href="$timer__cc__stm32f411__config_8c.html" title="Chip specific configuration table for each planned CC channel. " alt="" coords="219,124,408,195"/>
+<area shape="rect" id="node3" href="$timer__stm32f411_8c.html" title="Microcontroller specific implementation of timer functionality. " alt="" coords="5,243,195,299"/>
+</map>

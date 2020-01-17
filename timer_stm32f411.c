@@ -871,22 +871,22 @@ static void timer_cc_init_input(timer_cc_t timer_cc, timer_cc_config_t *config);
 
 static inline void timer_cc_parse_ccr(timer_cc_t timer_cc, uint32_t *timer_cc_port, uint32_t *timer_cc_channel)
 {
-		if (timer_cc < 20)
+		if (timer_cc < TIMER9_CCR1)
 		{
 			*timer_cc_channel = timer_cc % 4;
 			*timer_cc_port = timer_cc / 4;
 		}
-		else if (timer_cc < 22)
+		else if (timer_cc < TIMER10_CCR1)
 		{
 			*timer_cc_channel = timer_cc % 2;
 			*timer_cc_port = TIMER9;
 		}
-		else if (timer_cc == 22)
+		else if (timer_cc == TIMER10_CCR1)
 		{
 			*timer_cc_channel = 0;
 			*timer_cc_port = TIMER10;
 		}
-		else
+		else if (timer_cc == TIMER11_CCR1)
 		{
 			*timer_cc_channel = 0;
 			*timer_cc_port = TIMER11;

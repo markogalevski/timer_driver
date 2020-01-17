@@ -1,6 +1,6 @@
 <map id="/home/marko/Documents/embedded_workspace/timer_driver/timer_stm32f411.c" name="/home/marko/Documents/embedded_workspace/timer_driver/timer_stm32f411.c">
 <area shape="rect" id="node2" href="$timer__interface_8h.html" title="General interface covering user accesses to a timer&#39;s timebase functionality. " alt="" coords="86,191,204,218"/>
-<area shape="rect" id="node6" href="$timer__cc__interface_8h_source.html" title="timer_cc_interface.h" alt="" coords="131,109,271,136"/>
+<area shape="rect" id="node6" href="$timer__cc__interface_8h.html" title="General interface covering user accesses to a timer&#39;s capture and compare functionality. " alt="" coords="131,109,271,136"/>
 <area shape="rect" id="node3" href="$timer__stm32f411__config_8h.html" title="Microcontroller specific header containing typedefs for all relevant config options. " alt="" coords="174,273,346,300"/>
-<area shape="rect" id="node7" href="$timer__cc__stm32f411__config_8h_source.html" title="timer_cc_stm32f411\l_config.h" alt="" coords="267,184,407,225"/>
+<area shape="rect" id="node7" href="$timer__cc__stm32f411__config_8h.html" title="Chip specific header containing requisite enums and structs for proper configuration. " alt="" coords="267,184,407,225"/>
 </map>
