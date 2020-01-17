@@ -122,25 +122,316 @@ Functions</h2></td></tr>
 <tr class="separator:a2626875b0c6d119e973e9e6f51246de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac56c138635e13a17b99b30f9bf7897ab"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ac56c138635e13a17b99b30f9bf7897ab">timer_register_read</a> (uint32_t timer_register)</td></tr>
 <tr class="separator:ac56c138635e13a17b99b30f9bf7897ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13a61845be60c77f415b9b75dc3161cf"><td class="memItemLeft" align="right" valign="top"><a id="a13a61845be60c77f415b9b75dc3161cf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_init</b> (<a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *config_table)</td></tr>
+<tr class="memitem:a13a61845be60c77f415b9b75dc3161cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a13a61845be60c77f415b9b75dc3161cf">timer_cc_init</a> (<a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *config_table)</td></tr>
 <tr class="separator:a13a61845be60c77f415b9b75dc3161cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa80cfe52f16e2a75a98f16d09a40921a"><td class="memItemLeft" align="right" valign="top"><a id="aa80cfe52f16e2a75a98f16d09a40921a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_control</b> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, <a class="el" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973">timer_control_t</a> signal)</td></tr>
+<tr class="memitem:aa80cfe52f16e2a75a98f16d09a40921a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, <a class="el" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973">timer_control_t</a> signal)</td></tr>
 <tr class="separator:aa80cfe52f16e2a75a98f16d09a40921a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2471e672cf49d7fd9c3410964b11e4e1"><td class="memItemLeft" align="right" valign="top"><a id="a2471e672cf49d7fd9c3410964b11e4e1"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_read</b> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc)</td></tr>
-<tr class="separator:a2471e672cf49d7fd9c3410964b11e4e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4d47f68508e258761dcd64d91527266"><td class="memItemLeft" align="right" valign="top"><a id="aa4d47f68508e258761dcd64d91527266"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_write</b> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, uint32_t value)</td></tr>
-<tr class="separator:aa4d47f68508e258761dcd64d91527266"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2161da0bfaf8291335efc4af62abfbf"><td class="memItemLeft" align="right" valign="top"><a id="af2161da0bfaf8291335efc4af62abfbf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>timer_cc_pwm_duty_cycle_set</b> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, uint32_t duty_cycle_pcnt)</td></tr>
+<tr class="memitem:a6d67869ab94eea0f369e55a67d24e6bb"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a6d67869ab94eea0f369e55a67d24e6bb">timer_cc_read</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc)</td></tr>
+<tr class="separator:a6d67869ab94eea0f369e55a67d24e6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5af3898f176265a8dd1a80b544dc83cb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a5af3898f176265a8dd1a80b544dc83cb">timer_cc_write</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, uint16_t value)</td></tr>
+<tr class="separator:a5af3898f176265a8dd1a80b544dc83cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2161da0bfaf8291335efc4af62abfbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#af2161da0bfaf8291335efc4af62abfbf">timer_cc_pwm_duty_cycle_set</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, uint32_t duty_cycle_pcnt)</td></tr>
 <tr class="separator:af2161da0bfaf8291335efc4af62abfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae26255b13dd0bd74600929321f252010"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ae26255b13dd0bd74600929321f252010">timer_cc_pwm_duty_cycle_get</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc)</td></tr>
+<tr class="separator:ae26255b13dd0bd74600929321f252010"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Microcontroller specific implementation of timer functionality. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="aa80cfe52f16e2a75a98f16d09a40921a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa80cfe52f16e2a75a98f16d09a40921a">&#9670;&nbsp;</a></span>timer_cc_control()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_cc_control </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a>&#160;</td>
+          <td class="paramname"><em>timer_cc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973">timer_control_t</a>&#160;</td>
+          <td class="paramname"><em>signal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function activates or deactivates a channel.</p>
+<p>PRE-CONDITION: timer_cc_init has been called and finished succesfully</p>
+<p>POST-CONDITION: The timer cc channel has been activated/deactivated according to the signal</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer_cc</td><td>is a cc channel present on chip</td></tr>
+    <tr><td class="paramname">signal</td><td>commands the channel to start or stop</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><a class="code" href="timer__cc__interface_8h.html#a2f175326b7c759588a39ab9b980c5784">timer_cc_init</a>(timer_cc_config);</div><div class="line"><a class="code" href="timer__cc__interface_8h.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a>(TIMER2_CC3, <a class="code" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973ab64e562a51298f4a9eabc1f74d263217">TIMER_START</a>);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#a13a61845be60c77f415b9b75dc3161cf">timer_cc_init</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a6d67869ab94eea0f369e55a67d24e6bb">timer_cc_read</a></dd></dl>
+<p><br />
+<b> - CHANGE HISTORY - </b></p>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="a13a61845be60c77f415b9b75dc3161cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a61845be60c77f415b9b75dc3161cf">&#9670;&nbsp;</a></span>timer_cc_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_cc_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config_table</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function is used to initialise the capture compare units based on the configuration table defined in the <a class="el" href="timer__cc__stm32f411__config_8c.html" title="Chip specific configuration table for each planned CC channel. ">timer_cc_stm32f411_config.c</a></p>
+<p>PRE-CONDITION: CC configuration table needs to populated (sizeof &gt; 0) <br />
+ PRE-CONDITION: <a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init()</a> has been successfully carried out on the timers planned for use. PRE-CONDITION: The timer channel pins (TIMx_CHy) planned for use have been multiplexed appropriately with gpio_init()</p>
+<p>POST-CONDITION: The timer capture/compare channels are ready for use.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config_table</td><td>is a pointer to the configuration table that contains the initialisation structures for each cc channel.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> </p><div class="fragment"><div class="line">  <span class="keyword">const</span> <a class="code" href="structtimer__config__t.html">timer_config_t</a> *timer_config = <a class="code" href="timer__stm32f411__config_8c.html#a85ad761f6ad6a260bfb109bce8f88a21">timer_config_get</a>();</div><div class="line"><a class="code" href="timer__interface_8h.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a>(timer_config);</div><div class="line"><span class="keyword">const</span> <a class="code" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *timer_cc_config = <a class="code" href="timer__cc__stm32f411__config_8c.html#a68c965add60fde3be523aa069a74d805">timer_cc_config_get</a>();</div><div class="line"><a class="code" href="timer__cc__interface_8h.html#a2f175326b7c759588a39ab9b980c5784">timer_cc_init</a>(timer_cc_config);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__cc__stm32f411__config_8h.html#a68c965add60fde3be523aa069a74d805">timer_cc_config_get</a> </dd>
+<dd>
+timer_cc_init_output </dd>
+<dd>
+timer_cc_init_input <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="ae26255b13dd0bd74600929321f252010"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae26255b13dd0bd74600929321f252010">&#9670;&nbsp;</a></span>timer_cc_pwm_duty_cycle_get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t timer_cc_pwm_duty_cycle_get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a>&#160;</td>
+          <td class="paramname"><em>timer_cc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function returns a ~1% correct estimation of the current pwm duty cycle for CCy</p>
+<p>PRE-CONDITION: timer_init for the appropriate timer has been called and finished successfully PRE-CONDITION: timer_cc_init has been called and finished succesfully PRE-CONDITION: the timer_cc channel in question has been configured in PWM MDOE 1 or 2</p>
+<p>POST-CONDITION: The functon returns an estimate of the current duty cycle value to TIMx_CCR</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer_cc</td><td>is a cc channel present on chip</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><a class="code" href="timer__interface_8h.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a>(timer_config);</div><div class="line">  <a class="code" href="timer__cc__interface_8h.html#a2f175326b7c759588a39ab9b980c5784">timer_cc_init</a>(timer_cc_config);</div><div class="line">  <a class="code" href="timer__interface_8h.html#af9ad366bfcfa0fd57f57b3a10e164052">timer_control</a>(<a class="code" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a78900d10bb4d349f1403fbd090e66cd6">TIMER1</a>, <a class="code" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973ab64e562a51298f4a9eabc1f74d263217">TIMER_START</a>);</div><div class="line">  uint32_t current_dc = <a class="code" href="timer__cc__interface_8h.html#ae26255b13dd0bd74600929321f252010">timer_cc_pwm_duty_cycle_get</a>(TIMER1_CC1);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a5af3898f176265a8dd1a80b544dc83cb">timer_cc_write</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a6d67869ab94eea0f369e55a67d24e6bb">timer_cc_read</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#af2161da0bfaf8291335efc4af62abfbf">timer_cc_pwm_duty_cycle_set</a> <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="af2161da0bfaf8291335efc4af62abfbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2161da0bfaf8291335efc4af62abfbf">&#9670;&nbsp;</a></span>timer_cc_pwm_duty_cycle_set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_cc_pwm_duty_cycle_set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a>&#160;</td>
+          <td class="paramname"><em>timer_cc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>duty_cycle_pcnt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function is fed a natural number from 0 - 100 representing the duty cycle, and calculates an approximation for the required 16-32bit value in CCRy</p>
+<p><b>Note:</b> This PWM calculation mode works with as small as 2% error for PWM frequencies of up to 100kHz when run on the APB2 bus timers at 96MHz, i.e. TIM1,9,10,11. This suits almost all DC motor applications, heating/slow response systems, and low frequency power supplies. If you want to use it for high quality audio (200kHz, an implementation using the FPU will keep the error low. The resolution at such high frequencies drops to about 0.2% of your output voltage.</p>
+<p>The error on this duty cycle calculation rises the fewer ticks you use for PWM generation. A 22kHz PWM on a 48MHz 16bit timer leads to a maximum error of &lt;0.5% when generating a 50% signal. If "absolute precision" is required, I will look into using the FPU, but I rather wouldn't.</p>
+<p>PRE-CONDITION: timer_init for the appropriate timer has been called and finished successfully PRE-CONDITION: timer_cc_init has been called and finished succesfully PRE-CONDITION: the timer_cc channel in question has been configured in PWM MDOE 1 or 2</p>
+<p>POST-CONDITION: The functon writes the correct duty cycle value to TIMx_CCR</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer_cc</td><td>is a cc channel present on chip</td></tr>
+    <tr><td class="paramname">duty_cycle_pcnt</td><td>is the new duty cycle</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><a class="code" href="timer__interface_8h.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a>(timer_config);</div><div class="line">  <a class="code" href="timer__cc__interface_8h.html#a2f175326b7c759588a39ab9b980c5784">timer_cc_init</a>(timer_cc_config);</div><div class="line">  <a class="code" href="timer__interface_8h.html#af9ad366bfcfa0fd57f57b3a10e164052">timer_control</a>(<a class="code" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a78900d10bb4d349f1403fbd090e66cd6">TIMER1</a>, <a class="code" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973ab64e562a51298f4a9eabc1f74d263217">TIMER_START</a>);</div><div class="line">  <a class="code" href="timer__cc__interface_8h.html#af2161da0bfaf8291335efc4af62abfbf">timer_cc_pwm_duty_cycle_set</a>(TIMER1_CC1, 70);</div><div class="line">  <a class="code" href="timer__cc__interface_8h.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a>(TIMER1_CC1, <a class="code" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973ab64e562a51298f4a9eabc1f74d263217">TIMER_START</a>);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a5af3898f176265a8dd1a80b544dc83cb">timer_cc_write</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a6d67869ab94eea0f369e55a67d24e6bb">timer_cc_read</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#ae26255b13dd0bd74600929321f252010">timer_cc_pwm_duty_cycle_get</a> <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="a6d67869ab94eea0f369e55a67d24e6bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d67869ab94eea0f369e55a67d24e6bb">&#9670;&nbsp;</a></span>timer_cc_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t timer_cc_read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a>&#160;</td>
+          <td class="paramname"><em>timer_cc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function returns the current contents (target value) of the appropriate CCR register</p>
+<p>PRE-CONDITION: timer_cc_init has been called and finished succesfully</p>
+<p>POST-CONDITION: The functon returns the contents of CCR</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer_cc</td><td>is a cc channel present on chip</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint16_t</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line"><a class="code" href="timer__cc__interface_8h.html#a2f175326b7c759588a39ab9b980c5784">timer_cc_init</a>(timer_cc_config);</div><div class="line"><a class="code" href="timer__cc__interface_8h.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a>(TIMER2_CC3, <a class="code" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973ab64e562a51298f4a9eabc1f74d263217">TIMER_START</a>);</div><div class="line">...</div><div class="line">uint16_t timer2_cc3_value = <a class="code" href="timer__cc__interface_8h.html#a6d67869ab94eea0f369e55a67d24e6bb">timer_cc_read</a>(TIMER2_CC3);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a5af3898f176265a8dd1a80b544dc83cb">timer_cc_write</a></dd></dl>
+<p><br />
+<b> - CHANGE HISTORY - </b></p>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="a5af3898f176265a8dd1a80b544dc83cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5af3898f176265a8dd1a80b544dc83cb">&#9670;&nbsp;</a></span>timer_cc_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_cc_write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a>&#160;</td>
+          <td class="paramname"><em>timer_cc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function writes the target value to the appropriate CCR register</p>
+<p>PRE-CONDITION: timer_cc_init has been called and finished succesfully</p>
+<p>POST-CONDITION: The functon writes the new CCR</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer_cc</td><td>is a cc channel present on chip</td></tr>
+    <tr><td class="paramname">value</td><td>is the new desired CC target</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> </p>
+<div class="fragment"><div class="line">  <a class="code" href="timer__cc__interface_8h.html#a2f175326b7c759588a39ab9b980c5784">timer_cc_init</a>(timer_cc_config);</div><div class="line">  <a class="code" href="timer__cc__interface_8h.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a>(TIMER2_CC3, <a class="code" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973ab64e562a51298f4a9eabc1f74d263217">TIMER_START</a>);</div><div class="line">  ...</div><div class="line">  uint16_t timer2_cc3_value = 0xDAB;</div><div class="line"><a class="code" href="timer__cc__interface_8h.html#a5af3898f176265a8dd1a80b544dc83cb">timer_cc_write</a>(TIMER2_CC3, timer2_cc3_value);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a5af3898f176265a8dd1a80b544dc83cb">timer_cc_write</a></dd></dl>
+<p><br />
+<b> - CHANGE HISTORY - </b></p>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
 <a id="af9ad366bfcfa0fd57f57b3a10e164052"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af9ad366bfcfa0fd57f57b3a10e164052">&#9670;&nbsp;</a></span>timer_control()</h2>
 

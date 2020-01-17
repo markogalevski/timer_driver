@@ -2,9 +2,10 @@ var timer__stm32f411_8c =
 [
     [ "timer_cc_control", "timer__stm32f411_8c.html#aa80cfe52f16e2a75a98f16d09a40921a", null ],
     [ "timer_cc_init", "timer__stm32f411_8c.html#a13a61845be60c77f415b9b75dc3161cf", null ],
+    [ "timer_cc_pwm_duty_cycle_get", "timer__stm32f411_8c.html#ae26255b13dd0bd74600929321f252010", null ],
     [ "timer_cc_pwm_duty_cycle_set", "timer__stm32f411_8c.html#af2161da0bfaf8291335efc4af62abfbf", null ],
-    [ "timer_cc_read", "timer__stm32f411_8c.html#a2471e672cf49d7fd9c3410964b11e4e1", null ],
-    [ "timer_cc_write", "timer__stm32f411_8c.html#aa4d47f68508e258761dcd64d91527266", null ],
+    [ "timer_cc_read", "timer__stm32f411_8c.html#a6d67869ab94eea0f369e55a67d24e6bb", null ],
+    [ "timer_cc_write", "timer__stm32f411_8c.html#a5af3898f176265a8dd1a80b544dc83cb", null ],
     [ "timer_control", "timer__stm32f411_8c.html#af9ad366bfcfa0fd57f57b3a10e164052", null ],
     [ "timer_init", "timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591", null ],
     [ "timer_interrupt_control", "timer__stm32f411_8c.html#a2033291e9410536e526d2e0f6c505c8d", null ],

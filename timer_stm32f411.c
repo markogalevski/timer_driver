@@ -868,31 +868,48 @@ uint32_t timer_register_read(uint32_t timer_register)
 
 static void timer_cc_init_output(timer_cc_t timer_cc, timer_cc_config_t *config);
 static void timer_cc_init_input(timer_cc_t timer_cc, timer_cc_config_t *config);
+static inline void timer_cc_parse_ccr(timer_cc_t timer_cc, uint32_t *timer_cc_port, uint32_t *timer_cc_channel);
 
-static inline void timer_cc_parse_ccr(timer_cc_t timer_cc, uint32_t *timer_cc_port, uint32_t *timer_cc_channel)
-{
-		if (timer_cc < TIMER9_CCR1)
-		{
-			*timer_cc_channel = timer_cc % 4;
-			*timer_cc_port = timer_cc / 4;
-		}
-		else if (timer_cc < TIMER10_CCR1)
-		{
-			*timer_cc_channel = timer_cc % 2;
-			*timer_cc_port = TIMER9;
-		}
-		else if (timer_cc == TIMER10_CCR1)
-		{
-			*timer_cc_channel = 0;
-			*timer_cc_port = TIMER10;
-		}
-		else if (timer_cc == TIMER11_CCR1)
-		{
-			*timer_cc_channel = 0;
-			*timer_cc_port = TIMER11;
-		}
-}
 
+
+/******************************************************************************
+* Function: timer_cc_init()
+*//**
+* \b Description:
+*
+* This function is used to initialise the capture compare units based on the configuration table
+*  defined in the timer_cc_stm32f411_config.c
+*
+* PRE-CONDITION: CC configuration table needs to populated (sizeof > 0) <br>
+* PRE-CONDITION: timer_init() has been successfully carried out on the timers planned for use.
+* PRE-CONDITION: The timer channel pins (TIMx_CHy) planned for use have been multiplexed
+* 					appropriately with gpio_init()
+*
+* POST-CONDITION: The timer capture/compare channels are ready for use.
+*
+* @param  		config_table is a pointer to the configuration table that contains
+*				the initialisation structures for each cc channel.
+*
+* @return 		void
+*
+* \b Example:
+* @code
+* 	const timer_config_t *timer_config = timer_config_get();
+*	timer_init(timer_config);
+*	const timer_cc_config_t *timer_cc_config = timer_cc_config_get();
+*	timer_cc_init(timer_cc_config);
+* @endcode
+*
+* @see timer_cc_config_get
+* @see timer_cc_init_output
+* @see timer_cc_init_input
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 void timer_cc_init(timer_cc_config_t *config_table)
 {
 	for (int timer_cc = 0; timer_cc < NUM_CCRS; timer_cc++)
@@ -912,70 +929,42 @@ void timer_cc_init(timer_cc_config_t *config_table)
 	}
 }
 
-void timer_cc_control(timer_cc_t timer_cc, timer_control_t signal)
-{
-	uint32_t timer_cc_port;
-	uint32_t timer_cc_channel;
-	timer_cc_parse_ccr(timer_cc, &timer_cc_port, &timer_cc_channel);
-
-	if (signal == TIMER_STOP)
-	{
-		*TIM_CCER[timer_cc_port] &= ~(0x01 << (4 * timer_cc_channel));
-	}
-	else if (signal == TIMER_START)
-	{
-		*TIM_CCER[timer_cc_port] |= 0x01 << (4 * timer_cc_channel);
-	}
-}
-
-uint32_t timer_cc_read(timer_cc_t timer_cc)
-{
-	return(*TIM_CCR[timer_cc]);
-}
-
-void timer_cc_write(timer_cc_t timer_cc, uint32_t value)
-{
-	*TIM_CCR[timer_cc] = value;
-}
-
-void timer_cc_pwm_duty_cycle_set(timer_cc_t timer_cc, uint32_t duty_cycle_pcnt)
-{
-	/*
-	 * This PWM calculation mode works with as small as 2% error for PWM frequencies
-	 * of up to 100kHz when run on the APB2 bus timers at 96MHz, i.e. TIM1,9,10,11.
-	 * This suits almost all DC motor applications, heating/slow response systems, and low
-	 * frequency power supplies. If you want to use it for high quality audio (200kHz, an
-	 * implementation using the FPU will keep the error low. The resolution at such
-	 * high frequencies drops to about 0.2% of your output voltage.
-	 */
-	assert(duty_cycle_pcnt <= 100);
-	uint32_t timer_cc_port;
-	uint32_t timer_cc_channel;
-	timer_cc_parse_ccr(timer_cc, &timer_cc_port, &timer_cc_channel);
-
-
-	/* NOTE: The error on this duty cycle calculation rises the fewer ticks you use
-	 * for PWM generation. A 22kHz PWM on a 48MHz 16bit timer leads to a maximum
-	 * error of <0.5% when generating a 50% signal. If "absolute precision" is required,
-	 * I will look into using the FPU, but I rather wouldn't.
-	 */
-
-	uint32_t estimated_one_pcnt = *TIM_ARR[timer_cc_port]/100;
-	if (*TIM_ARR[timer_cc_port] % 100 > 50)
-	{
-		estimated_one_pcnt++;
-	}
-
-	if (duty_cycle_pcnt <= 50)
-	{
-	*TIM_CCR[timer_cc] = estimated_one_pcnt*duty_cycle_pcnt;
-	}
-	else
-	{
-		*TIM_CCR[timer_cc] = *TIM_ARR[timer_cc_port] - (estimated_one_pcnt*(100-duty_cycle_pcnt));
-	}
-}
-
+/******************************************************************************
+* Function: timer_cc_init_output()
+*//**
+* \b Description:
+*
+* This function is used to initialise the current CC channel in output mode
+*
+* PRE-CONDITION: The current cc config table element must be non-zero
+* PRE-CONDITION: timer_init() has been successfully carried out on the timer planned for use.
+* PRE-CONDITION: The timer channel pins (TIMx_CHy) planned for use have been multiplexed
+* 					appropriately with gpio_init()
+*
+* POST-CONDITION: The timer cc channel is configured in output mode
+*
+* @param 		timer_cc is a cc channel present on chip
+*
+* @param  		config is a pointer to the configuration table element that contains
+*				the initialisation structure for timer_cc.
+*
+* @return 		void
+*
+* \b Example:
+* Automatically called by timer_cc_init when
+* @code
+*		cc_config->cc_mode == CC_OUTPUT;
+* @endcode
+*
+* @see timer_cc_init
+* @see timer_cc_init_input
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 static void timer_cc_init_output(timer_cc_t timer_cc, timer_cc_config_t *config)
 {
 	uint32_t timer_cc_port;
@@ -1036,6 +1025,42 @@ static void timer_cc_init_output(timer_cc_t timer_cc, timer_cc_config_t *config)
 		}
 }
 
+/******************************************************************************
+* Function: timer_cc_init_input()
+*//**
+* \b Description:
+*
+* This function is used to initialise the current CC channel in input mode
+*
+* PRE-CONDITION: The current cc config table element must be non-zero
+* PRE-CONDITION: timer_init() has been successfully carried out on the timer planned for use.
+* PRE-CONDITION: The timer channel pins (TIMx_CHy) planned for use have been multiplexed
+* 					appropriately with gpio_init()
+*
+* POST-CONDITION: The timer cc channel is configured in input mode
+*
+* @param 		timer_cc is a cc channel present on chip
+*
+* @param  		config is a pointer to the configuration table element that contains
+*				the initialisation structure for timer_cc.
+*
+* @return 		void
+*
+* \b Example:
+* Automatically called by timer_cc_init when
+* @code
+*		cc_config->cc_mode != CC_OUTPUT;
+* @endcode
+*
+* @see timer_cc_init
+* @see timer_cc_init_output
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
 static void timer_cc_init_input(timer_cc_t timer_cc, timer_cc_config_t *config)
 {
 	uint32_t timer_cc_port;
@@ -1074,6 +1099,7 @@ static void timer_cc_init_input(timer_cc_t timer_cc, timer_cc_config_t *config)
 		*TIM_CCMR1[timer_cc_port] |= ((config->input_event_filter << 4) << (8 * timer_cc_channel) );
 	}
 	//6. Set CCR input polarity
+
 	if (config->input_polarity == RISING_EDGE)
 	{
 		*TIM_CCER[timer_cc_port] &= ~(0x05UL << (4 * timer_cc_channel));
@@ -1083,10 +1109,348 @@ static void timer_cc_init_input(timer_cc_t timer_cc, timer_cc_config_t *config)
 		*TIM_CCER[timer_cc_port] &= ~(0x05UL << (4 * timer_cc_channel));
 		*TIM_CCER[timer_cc_port] |= (0x01UL << (4 * timer_cc_channel));
 	}
-	else if (config->input_polarity == BOTH_EDGES)
+	/**
+	 * CC4 doesn't support "both edges" sensitivity
+	 */
+	else if (config->input_polarity == BOTH_EDGES && timer_cc_channel != 3)
 	{
 		*TIM_CCER[timer_cc_port] |= (0x05UL << (4 * timer_cc_channel));
 	}
+}
+
+/******************************************************************************
+* Function: timer_cc_parse_ccr()
+*//**
+* \b Description:
+*
+* This function is statically called by functions to convert the raw cc_channel identifier to a mapping
+* 	of port and relative channel.
+*
+* PRE-CONDITION: The current cc config table element must me non-zero
+* PRE-CONDITION: timer_init() has been successfully carried out on the timer planned for use.
+* PRE-CONDITION: The timer channel pins (TIMx_CHy) planned for use have been multiplexed
+* 					appropriately with gpio_init()
+*
+* POST-CONDITION: The timer cc channel is configured in output mode
+*
+* @param 		timer_cc is a cc channel present on chip
+*
+* @param  		*timer_cc_port is a pointer to a variable which will hold the calculated port value
+*
+* @param		*timer_cc_channel is a pointer to a variable which will hold the calculated channel value
+*
+* @return 		void
+*
+* \b Example:
+*	within function_x
+* @code
+*
+* uint32_t timer_cc_port, timer_cc_channel;
+* timer_cc_parse_ccr(timer_cc, timer_cc_port, timer_cc_channel);
+* @endcode
+*
+* @see timer_cc_init
+* @see timer_cc_control
+* @see timer_cc_read
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+static inline void timer_cc_parse_ccr(timer_cc_t timer_cc, uint32_t *timer_cc_port, uint32_t *timer_cc_channel)
+{
+		if (timer_cc < TIMER9_CCR1)
+		{
+			*timer_cc_channel = timer_cc % 4;
+			*timer_cc_port = timer_cc / 4;
+		}
+		else if (timer_cc < TIMER10_CCR1)
+		{
+			*timer_cc_channel = timer_cc % 2;
+			*timer_cc_port = TIMER9;
+		}
+		else if (timer_cc == TIMER10_CCR1)
+		{
+			*timer_cc_channel = 0;
+			*timer_cc_port = TIMER10;
+		}
+		else if (timer_cc == TIMER11_CCR1)
+		{
+			*timer_cc_channel = 0;
+			*timer_cc_port = TIMER11;
+		}
+}
+
+/******************************************************************************
+* Function: timer_cc_control()
+*//**
+* \b Description:
+*
+* This function activates or deactivates a channel.
+*
+* PRE-CONDITION: timer_cc_init has been called and finished succesfully
+*
+* POST-CONDITION: The timer cc channel has been activated/deactivated according to the signal
+*
+* @param 		timer_cc is a cc channel present on chip
+*
+* @param  		signal commands the channel to start or stop
+*
+* @return 		void
+*
+* \b Example:
+*
+* @code
+* 	timer_cc_init(timer_cc_config);
+* 	timer_cc_control(TIMER2_CC3, TIMER_START);
+* @endcode
+*
+* @see timer_cc_init
+* @see timer_cc_read
+*
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+void timer_cc_control(timer_cc_t timer_cc, timer_control_t signal)
+{
+	uint32_t timer_cc_port;
+	uint32_t timer_cc_channel;
+	timer_cc_parse_ccr(timer_cc, &timer_cc_port, &timer_cc_channel);
+
+	if (signal == TIMER_STOP)
+	{
+		*TIM_CCER[timer_cc_port] &= ~(0x01 << (4 * timer_cc_channel));
+	}
+	else if (signal == TIMER_START)
+	{
+		*TIM_CCER[timer_cc_port] |= 0x01 << (4 * timer_cc_channel);
+	}
+}
+
+/******************************************************************************
+* Function: timer_cc_read()
+*//**
+* \b Description:
+*
+* This function returns the current contents (target value) of the appropriate CCR register
+*
+* PRE-CONDITION: timer_cc_init has been called and finished succesfully
+*
+* POST-CONDITION: The functon returns the contents of CCR
+*
+* @param 		timer_cc is a cc channel present on chip
+*
+*
+* @return 		uint16_t
+*
+* \b Example:
+*
+* @code
+* 	timer_cc_init(timer_cc_config);
+* 	timer_cc_control(TIMER2_CC3, TIMER_START);
+* 	...
+* 	uint16_t timer2_cc3_value = timer_cc_read(TIMER2_CC3);
+*
+* @endcode
+*
+* @see timer_cc_control
+* @see timer_cc_write
+*
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+uint16_t timer_cc_read(timer_cc_t timer_cc)
+{
+	return(*TIM_CCR[timer_cc]);
+}
+
+/******************************************************************************
+* Function: timer_cc_write()
+*//**
+* \b Description:
+*
+* This function writes the target value to the appropriate CCR register
+*
+* PRE-CONDITION: timer_cc_init has been called and finished succesfully
+*
+* POST-CONDITION: The functon writes the new CCR
+*
+* @param 		timer_cc is a cc channel present on chip
+*
+* @param		value is the new desired CC target
+*
+* @return 		void
+*
+* \b Example:
+*
+* @code
+* 	timer_cc_init(timer_cc_config);
+* 	timer_cc_control(TIMER2_CC3, TIMER_START);
+* 	...
+* 	uint16_t timer2_cc3_value = 0xDAB;
+	timer_cc_write(TIMER2_CC3, timer2_cc3_value);
+* @endcode
+*
+* @see timer_cc_control
+* @see timer_cc_write
+*
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+void timer_cc_write(timer_cc_t timer_cc, uint16_t value)
+{
+	*TIM_CCR[timer_cc] = value;
+}
+
+/******************************************************************************
+* Function: timer_cc_pwm_duty_cycle_set()
+*//**
+* \b Description:
+*
+* This function is fed a natural number from 0 - 100 representing the duty cycle,
+* 	and calculates an approximation for the required 16-32bit value in CCRy
+*
+* \b Note:
+* This PWM calculation mode works with as small as 2% error for PWM frequencies
+* of up to 100kHz when run on the APB2 bus timers at 96MHz, i.e. TIM1,9,10,11.
+* This suits almost all DC motor applications, heating/slow response systems, and low
+* frequency power supplies. If you want to use it for high quality audio (200kHz, an
+* implementation using the FPU will keep the error low. The resolution at such
+* high frequencies drops to about 0.2% of your output voltage.
+*
+* The error on this duty cycle calculation rises the fewer ticks you use
+* for PWM generation. A 22kHz PWM on a 48MHz 16bit timer leads to a maximum
+* error of <0.5% when generating a 50% signal. If "absolute precision" is required,
+* I will look into using the FPU, but I rather wouldn't.
+*
+* PRE-CONDITION: timer_init for the appropriate timer has been called and finished successfully
+* PRE-CONDITION: timer_cc_init has been called and finished succesfully
+* PRE-CONDITION: the timer_cc channel in question has been configured in PWM MDOE 1 or 2
+*
+* POST-CONDITION: The functon writes the correct duty cycle value to TIMx_CCR
+*
+* @param 		timer_cc is a cc channel present on chip
+*
+* @param		duty_cycle_pcnt is the new duty cycle
+*
+* @return 		void
+*
+* \b Example:
+*
+* @code
+*   timer_init(timer_config);
+* 	timer_cc_init(timer_cc_config);
+* 	timer_control(TIMER1, TIMER_START);
+* 	timer_cc_pwm_duty_cycle_set(TIMER1_CC1, 70);
+* 	timer_cc_control(TIMER1_CC1, TIMER_START);
+
+* @endcode
+*
+* @see timer_cc_control
+* @see timer_cc_write
+* @see timer_cc_read
+* @see timer_cc_pwm_duty_cycle_get
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+void timer_cc_pwm_duty_cycle_set(timer_cc_t timer_cc, uint32_t duty_cycle_pcnt)
+{
+
+	assert(duty_cycle_pcnt <= 100);
+	uint32_t timer_cc_port;
+	uint32_t timer_cc_channel;
+	timer_cc_parse_ccr(timer_cc, &timer_cc_port, &timer_cc_channel);
+
+	uint32_t estimated_one_pcnt = *TIM_ARR[timer_cc_port]/100;
+	if (*TIM_ARR[timer_cc_port] % 100 > 50)
+	{
+		estimated_one_pcnt++;
+	}
+
+	if (duty_cycle_pcnt <= 50)
+	{
+	*TIM_CCR[timer_cc] = estimated_one_pcnt*duty_cycle_pcnt;
+	}
+	else
+	{
+		*TIM_CCR[timer_cc] = *TIM_ARR[timer_cc_port] - (estimated_one_pcnt*(100-duty_cycle_pcnt));
+	}
+}
+
+/******************************************************************************
+* Function: timer_cc_pwm_duty_cycle_get()
+*//**
+* \b Description:
+*
+* This function returns a ~1% correct estimation of the current pwm duty cycle for
+* 	CCy
+*
+* PRE-CONDITION: timer_init for the appropriate timer has been called and finished successfully
+* PRE-CONDITION: timer_cc_init has been called and finished succesfully
+* PRE-CONDITION: the timer_cc channel in question has been configured in PWM MDOE 1 or 2
+*
+* POST-CONDITION: The functon returns an estimate of the current duty cycle value to TIMx_CCR
+*
+* @param 		timer_cc is a cc channel present on chip
+*
+*
+* @return 		uint32_t
+*
+* \b Example:
+*
+* @code
+*   timer_init(timer_config);
+* 	timer_cc_init(timer_cc_config);
+* 	timer_control(TIMER1, TIMER_START);
+* 	uint32_t current_dc = timer_cc_pwm_duty_cycle_get(TIMER1_CC1);
+* @endcode
+*
+* @see timer_cc_control
+* @see timer_cc_write
+* @see timer_cc_read
+* @see timer_cc_pwm_duty_cycle_set
+* <br><b> - CHANGE HISTORY - </b>
+*
+* <table align="left" style="width:800px">
+* <tr><td> Date       </td><td> Software Version </td><td> Initials </td><td> Description </td></tr>
+* </table><br><br>
+* <hr>
+*******************************************************************************/
+uint32_t timer_cc_pwm_duty_cycle_get(timer_cc_t timer_cc)
+{
+	uint32_t timer_cc_port;
+	uint32_t timer_cc_channel
+	timer_cc_parse_ccr(timer_cc, &timer_cc_port, &timer_cc_channel);
+
+	uint32_t estimated_one_pcnt = *TIM_ARR[timer_cc_port]/100;
+	if (*TIM_ARR[timer_cc_port] % 100 > 50)
+	{
+		estimated_one_pcnt++;
+	}
+	uint32_t estimated_duty_cycle = *TIM_CCR[timer_cc]/estimated_one_pcnt;
+	if (*TIM_CCR[timer_cc] % estimated_one_pcnt > estimated_one_pcnt/2)
+	{
+		estimated_duty_cycle++;
+	}
+	return(estimated_duty_cycle);
 }
 
 #endif
