@@ -1437,7 +1437,7 @@ void timer_cc_pwm_duty_cycle_set(timer_cc_t timer_cc, uint32_t duty_cycle_pcnt)
 uint32_t timer_cc_pwm_duty_cycle_get(timer_cc_t timer_cc)
 {
 	uint32_t timer_cc_port;
-	uint32_t timer_cc_channel
+	uint32_t timer_cc_channel;
 	timer_cc_parse_ccr(timer_cc, &timer_cc_port, &timer_cc_channel);
 
 	uint32_t estimated_one_pcnt = *TIM_ARR[timer_cc_port]/100;

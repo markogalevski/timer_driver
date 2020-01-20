@@ -1,5 +1,5 @@
 /*******************************************************************************
-* Title                 :   Timer Capture and Compare STM32F411 Config Header
+* Title                 :   Timer Capture and Compare Config Header for STM32F411
 * Filename              :   timer_cc_stm32f411_config.h
 * Author                :   Marko Galevski
 * Origin Date           :   17/01/2020

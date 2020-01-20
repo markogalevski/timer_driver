@@ -22,5 +22,8 @@ var searchData=
   ['ck_5fint_5ftimes_5f2',['CK_INT_TIMES_2',['../timer__stm32f411__config_8h.html#ab923c652bba5ec9dd16f70db594739c5a92fcae5c3ec916a75dd80beb97da2ec1',1,'timer_stm32f411_config.h']]],
   ['ck_5fint_5ftimes_5f4',['CK_INT_TIMES_4',['../timer__stm32f411__config_8h.html#ab923c652bba5ec9dd16f70db594739c5a4de54bbe7e653378478e6139f54ee6e3',1,'timer_stm32f411_config.h']]],
   ['clock_5fsource',['clock_source',['../structtimer__advanced__t.html#a55f14952d0610532cd15723da39e3852',1,'timer_advanced_t']]],
-  ['com_5finterrupt',['COM_INTERRUPT',['../timer__stm32f411__config_8h.html#aab4be5010ac4fa3e65d5a6af4a6a692ba3980203b41add90ba90a37f9e78cea34',1,'timer_stm32f411_config.h']]]
+  ['com_5finterrupt',['COM_INTERRUPT',['../timer__stm32f411__config_8h.html#aab4be5010ac4fa3e65d5a6af4a6a692ba3980203b41add90ba90a37f9e78cea34',1,'timer_stm32f411_config.h']]],
+  ['config_5fadvanced',['config_advanced',['../timer__stm32f411__config_8c.html#a68af7871fd448fef7309c96f02276dac',1,'timer_stm32f411_config.c']]],
+  ['config_5ftable',['config_table',['../timer__cc__stm32f411__config_8c.html#ac91e927837f39a2a89f038e4909a07a1',1,'config_table():&#160;timer_cc_stm32f411_config.c'],['../timer__stm32f411__config_8c.html#adfbb5f48e531600ae84916d6dd33bc86',1,'config_table():&#160;timer_stm32f411_config.c']]],
+  ['config_5ftrigger',['config_trigger',['../timer__stm32f411__config_8c.html#a605ec3b8faf353c866dace09680f18fa',1,'timer_stm32f411_config.c']]]
 ];

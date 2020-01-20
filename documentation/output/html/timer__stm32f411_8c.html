@@ -81,7 +81,8 @@ $(document).ready(function(){initNavTree('timer__stm32f411_8c.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">/home/marko/Documents/embedded_workspace/timer_driver/timer_stm32f411.c File Reference</div>  </div>
 </div><!--header-->
@@ -106,7 +107,13 @@ Include dependency graph for timer_stm32f411.c:</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1e855e5068e026d91c42c5b7fce0b591"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a> (<a class="el" href="structtimer__config__t.html">timer_config_t</a> *config_table)</td></tr>
+<tr class="memitem:ac60d975b739ef6ab0e8e8c1b6a00b9fb"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ac60d975b739ef6ab0e8e8c1b6a00b9fb">timer_init_external_mode_1</a> (<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276">timer_t</a> timer, <a class="el" href="structtimer__config__t.html">timer_config_t</a> *config)</td></tr>
+<tr class="separator:ac60d975b739ef6ab0e8e8c1b6a00b9fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35f2cb4bfda46678a932aa816416cf02"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a35f2cb4bfda46678a932aa816416cf02">timer_init_external_mode_2</a> (<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276">timer_t</a> timer, <a class="el" href="structtimer__config__t.html">timer_config_t</a> *config)</td></tr>
+<tr class="separator:a35f2cb4bfda46678a932aa816416cf02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a023fdd1f4e7cad05d75e71f358963650"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a023fdd1f4e7cad05d75e71f358963650">timer_init_slave_mode</a> (<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276">timer_t</a> timer, <a class="el" href="structtimer__config__t.html">timer_config_t</a> *config)</td></tr>
+<tr class="separator:a023fdd1f4e7cad05d75e71f358963650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e855e5068e026d91c42c5b7fce0b591"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a> (<a class="el" href="structtimer__config__t.html">timer_config_t</a> *<a class="el" href="timer__stm32f411__config_8c.html#adfbb5f48e531600ae84916d6dd33bc86">config_table</a>)</td></tr>
 <tr class="separator:a1e855e5068e026d91c42c5b7fce0b591"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9ad366bfcfa0fd57f57b3a10e164052"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#af9ad366bfcfa0fd57f57b3a10e164052">timer_control</a> (<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276">timer_t</a> timer, <a class="el" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973">timer_control_t</a> signal)</td></tr>
 <tr class="separator:af9ad366bfcfa0fd57f57b3a10e164052"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,7 +129,13 @@ Functions</h2></td></tr>
 <tr class="separator:a2626875b0c6d119e973e9e6f51246de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac56c138635e13a17b99b30f9bf7897ab"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ac56c138635e13a17b99b30f9bf7897ab">timer_register_read</a> (uint32_t timer_register)</td></tr>
 <tr class="separator:ac56c138635e13a17b99b30f9bf7897ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13a61845be60c77f415b9b75dc3161cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a13a61845be60c77f415b9b75dc3161cf">timer_cc_init</a> (<a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *config_table)</td></tr>
+<tr class="memitem:ad3c15ac523f8046cdd14d7f1a798351b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ad3c15ac523f8046cdd14d7f1a798351b">timer_cc_init_output</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, <a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *config)</td></tr>
+<tr class="separator:ad3c15ac523f8046cdd14d7f1a798351b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb8a50cb2f3a239f6dc741983b6d02d0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#adb8a50cb2f3a239f6dc741983b6d02d0">timer_cc_init_input</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, <a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *config)</td></tr>
+<tr class="separator:adb8a50cb2f3a239f6dc741983b6d02d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac390a7e8585f898a7ff28037af7e8c55"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ac390a7e8585f898a7ff28037af7e8c55">timer_cc_parse_ccr</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, uint32_t *timer_cc_port, uint32_t *timer_cc_channel)</td></tr>
+<tr class="separator:ac390a7e8585f898a7ff28037af7e8c55"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13a61845be60c77f415b9b75dc3161cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a13a61845be60c77f415b9b75dc3161cf">timer_cc_init</a> (<a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *<a class="el" href="timer__stm32f411__config_8c.html#adfbb5f48e531600ae84916d6dd33bc86">config_table</a>)</td></tr>
 <tr class="separator:a13a61845be60c77f415b9b75dc3161cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa80cfe52f16e2a75a98f16d09a40921a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc, <a class="el" href="timer__interface_8h.html#a8c9b38f00e59549ec44961259cf5f973">timer_control_t</a> signal)</td></tr>
 <tr class="separator:aa80cfe52f16e2a75a98f16d09a40921a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,6 +147,45 @@ Functions</h2></td></tr>
 <tr class="separator:af2161da0bfaf8291335efc4af62abfbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae26255b13dd0bd74600929321f252010"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ae26255b13dd0bd74600929321f252010">timer_cc_pwm_duty_cycle_get</a> (<a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a> timer_cc)</td></tr>
 <tr class="separator:ae26255b13dd0bd74600929321f252010"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a003ea0a418d79aa0f43b83593d6ba61e"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a003ea0a418d79aa0f43b83593d6ba61e">TIM_CR1</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:a003ea0a418d79aa0f43b83593d6ba61e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad01abfc90a8aec20b41607fa63320422"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ad01abfc90a8aec20b41607fa63320422">TIM_CR2</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:ad01abfc90a8aec20b41607fa63320422"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c3049475a5ea2648534eb2e86576ea"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a07c3049475a5ea2648534eb2e86576ea">TIM_SMCR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:a07c3049475a5ea2648534eb2e86576ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecfcb7cc7a58d6a79f79332f97a348b2"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#aecfcb7cc7a58d6a79f79332f97a348b2">TIM_DIER</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:aecfcb7cc7a58d6a79f79332f97a348b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acff1970fec5b1355fb5d324b7d2e1eeb"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#acff1970fec5b1355fb5d324b7d2e1eeb">TIM_SR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:acff1970fec5b1355fb5d324b7d2e1eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affeba98f5df6dd8721e497e5041f2124"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#affeba98f5df6dd8721e497e5041f2124">TIM_EGR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:affeba98f5df6dd8721e497e5041f2124"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2ea23afd2a84167b34b3c100d607ba0"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ad2ea23afd2a84167b34b3c100d607ba0">TIM_CCMR1</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:ad2ea23afd2a84167b34b3c100d607ba0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df0c2587f5c94ce9da769f2f5a08c52"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a2df0c2587f5c94ce9da769f2f5a08c52">TIM_CCMR2</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:a2df0c2587f5c94ce9da769f2f5a08c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c99ed97951dbc3347e9069cb4808ff8"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a7c99ed97951dbc3347e9069cb4808ff8">TIM_CCER</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:a7c99ed97951dbc3347e9069cb4808ff8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c6ec0a1727aafed3db116522548cd7a"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a8c6ec0a1727aafed3db116522548cd7a">TIM_CNT</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:a8c6ec0a1727aafed3db116522548cd7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3df114acc8298bab0cfec0f60be821e"><td class="memItemLeft" align="right" valign="top">static volatile uint16_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#ab3df114acc8298bab0cfec0f60be821e">TIM_PSC</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:ab3df114acc8298bab0cfec0f60be821e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa91db432736e790a520125e57f60fd12"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#aa91db432736e790a520125e57f60fd12">TIM_ARR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:aa91db432736e790a520125e57f60fd12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12410c5a3038fd163a428a817fcafac1"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a12410c5a3038fd163a428a817fcafac1">TIM_RCR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:a12410c5a3038fd163a428a817fcafac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6179e8fd235e0ca6eb57d47f63ece471"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a6179e8fd235e0ca6eb57d47f63ece471">TIM_CCR</a> [NUM_CCRS]</td></tr>
+<tr class="separator:a6179e8fd235e0ca6eb57d47f63ece471"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1fe28cdbb96b15223908b1a42dcb4ac"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#af1fe28cdbb96b15223908b1a42dcb4ac">TIM_BDTR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:af1fe28cdbb96b15223908b1a42dcb4ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5b33300352a7139f59f839b6beb45b2"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#af5b33300352a7139f59f839b6beb45b2">TIM_DCR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:af5b33300352a7139f59f839b6beb45b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba613b176688e0f3e926d0bff315ca88"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#aba613b176688e0f3e926d0bff315ca88">TIM_DMAR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:aba613b176688e0f3e926d0bff315ca88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86d092f8383cfa4d5ca91914df658346"><td class="memItemLeft" align="right" valign="top">static volatile uint32_t *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="timer__stm32f411_8c.html#a86d092f8383cfa4d5ca91914df658346">TIM_OR</a> [<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td></tr>
+<tr class="separator:a86d092f8383cfa4d5ca91914df658346"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Microcontroller specific implementation of timer functionality. </p>
@@ -220,9 +272,196 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p><b>Example:</b> </p><div class="fragment"><div class="line">  <span class="keyword">const</span> <a class="code" href="structtimer__config__t.html">timer_config_t</a> *timer_config = <a class="code" href="timer__stm32f411__config_8c.html#a85ad761f6ad6a260bfb109bce8f88a21">timer_config_get</a>();</div><div class="line"><a class="code" href="timer__interface_8h.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a>(timer_config);</div><div class="line"><span class="keyword">const</span> <a class="code" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *timer_cc_config = <a class="code" href="timer__cc__stm32f411__config_8c.html#a68c965add60fde3be523aa069a74d805">timer_cc_config_get</a>();</div><div class="line"><a class="code" href="timer__cc__interface_8h.html#a2f175326b7c759588a39ab9b980c5784">timer_cc_init</a>(timer_cc_config);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__cc__stm32f411__config_8h.html#a68c965add60fde3be523aa069a74d805">timer_cc_config_get</a> </dd>
 <dd>
-timer_cc_init_output </dd>
+<a class="el" href="timer__stm32f411_8c.html#ad3c15ac523f8046cdd14d7f1a798351b">timer_cc_init_output</a> </dd>
 <dd>
-timer_cc_init_input <br />
+<a class="el" href="timer__stm32f411_8c.html#adb8a50cb2f3a239f6dc741983b6d02d0">timer_cc_init_input</a> <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="adb8a50cb2f3a239f6dc741983b6d02d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb8a50cb2f3a239f6dc741983b6d02d0">&#9670;&nbsp;</a></span>timer_cc_init_input()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void timer_cc_init_input </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a>&#160;</td>
+          <td class="paramname"><em>timer_cc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function is used to initialise the current CC channel in input mode</p>
+<p>PRE-CONDITION: The current cc config table element must be non-zero PRE-CONDITION: <a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init()</a> has been successfully carried out on the timer planned for use. PRE-CONDITION: The timer channel pins (TIMx_CHy) planned for use have been multiplexed appropriately with gpio_init()</p>
+<p>POST-CONDITION: The timer cc channel is configured in input mode</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer_cc</td><td>is a cc channel present on chip</td></tr>
+    <tr><td class="paramname">config</td><td>is a pointer to the configuration table element that contains the initialisation structure for timer_cc.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> Automatically called by timer_cc_init when </p><div class="fragment"><div class="line">cc_config-&gt;cc_mode != <a class="code" href="timer__cc__stm32f411__config_8h.html#a089e78e3431fff84c28d9e1b37be4b5ba5520ccac7a1b43fd8e1748d46a80ae17">CC_OUTPUT</a>;</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#a13a61845be60c77f415b9b75dc3161cf">timer_cc_init</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#ad3c15ac523f8046cdd14d7f1a798351b">timer_cc_init_output</a> <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ <p>CC4 doesn't support "both edges" sensitivity</p>
+
+</div>
+</div>
+<a id="ad3c15ac523f8046cdd14d7f1a798351b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3c15ac523f8046cdd14d7f1a798351b">&#9670;&nbsp;</a></span>timer_cc_init_output()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void timer_cc_init_output </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a>&#160;</td>
+          <td class="paramname"><em>timer_cc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtimer__cc__config__t.html">timer_cc_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function is used to initialise the current CC channel in output mode</p>
+<p>PRE-CONDITION: The current cc config table element must be non-zero PRE-CONDITION: <a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init()</a> has been successfully carried out on the timer planned for use. PRE-CONDITION: The timer channel pins (TIMx_CHy) planned for use have been multiplexed appropriately with gpio_init()</p>
+<p>POST-CONDITION: The timer cc channel is configured in output mode</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer_cc</td><td>is a cc channel present on chip</td></tr>
+    <tr><td class="paramname">config</td><td>is a pointer to the configuration table element that contains the initialisation structure for timer_cc.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> Automatically called by timer_cc_init when </p><div class="fragment"><div class="line">cc_config-&gt;cc_mode == <a class="code" href="timer__cc__stm32f411__config_8h.html#a089e78e3431fff84c28d9e1b37be4b5ba5520ccac7a1b43fd8e1748d46a80ae17">CC_OUTPUT</a>;</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#a13a61845be60c77f415b9b75dc3161cf">timer_cc_init</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#adb8a50cb2f3a239f6dc741983b6d02d0">timer_cc_init_input</a> <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="ac390a7e8585f898a7ff28037af7e8c55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac390a7e8585f898a7ff28037af7e8c55">&#9670;&nbsp;</a></span>timer_cc_parse_ccr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void timer_cc_parse_ccr </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__cc__stm32f411__config_8h.html#a0d2d4ad523b47ab027338b08b939191c">timer_cc_t</a>&#160;</td>
+          <td class="paramname"><em>timer_cc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>timer_cc_port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>timer_cc_channel</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function is statically called by functions to convert the raw cc_channel identifier to a mapping of port and relative channel.</p>
+<p>PRE-CONDITION: The current cc config table element must me non-zero PRE-CONDITION: <a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init()</a> has been successfully carried out on the timer planned for use. PRE-CONDITION: The timer channel pins (TIMx_CHy) planned for use have been multiplexed appropriately with gpio_init()</p>
+<p>POST-CONDITION: The timer cc channel is configured in output mode</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer_cc</td><td>is a cc channel present on chip</td></tr>
+    <tr><td class="paramname">*timer_cc_port</td><td>is a pointer to a variable which will hold the calculated port value</td></tr>
+    <tr><td class="paramname">*timer_cc_channel</td><td>is a pointer to a variable which will hold the calculated channel value</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> within function_x </p><div class="fragment"><div class="line">uint32_t timer_cc_port, timer_cc_channel;</div><div class="line"><a class="code" href="timer__stm32f411_8c.html#ac390a7e8585f898a7ff28037af7e8c55">timer_cc_parse_ccr</a>(timer_cc, timer_cc_port, timer_cc_channel);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#a13a61845be60c77f415b9b75dc3161cf">timer_cc_init</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#aa80cfe52f16e2a75a98f16d09a40921a">timer_cc_control</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a6d67869ab94eea0f369e55a67d24e6bb">timer_cc_read</a> <br />
 <b> - CHANGE HISTORY - </b></dd></dl>
 <table align="left" style="width:800px">
 <tr>
@@ -514,11 +753,11 @@ timer_cc_init_input <br />
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <p><b>Example:</b> </p><div class="fragment"><div class="line"><span class="keyword">const</span> <a class="code" href="structtimer__config__t.html">timer_config_t</a> *timer_config = <a class="code" href="timer__stm32f411__config_8c.html#a85ad761f6ad6a260bfb109bce8f88a21">timer_config_get</a>();</div><div class="line"><a class="code" href="timer__interface_8h.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a>(timer_config);</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411__config_8h.html#a85ad761f6ad6a260bfb109bce8f88a21">timer_config_get</a> </dd>
 <dd>
-timer_init_external_mode_1 </dd>
+<a class="el" href="timer__stm32f411_8c.html#ac60d975b739ef6ab0e8e8c1b6a00b9fb">timer_init_external_mode_1</a> </dd>
 <dd>
-timer_init_external_mode_2 </dd>
+<a class="el" href="timer__stm32f411_8c.html#a35f2cb4bfda46678a932aa816416cf02">timer_init_external_mode_2</a> </dd>
 <dd>
-timer_init_slave_mode <br />
+<a class="el" href="timer__stm32f411_8c.html#a023fdd1f4e7cad05d75e71f358963650">timer_init_slave_mode</a> <br />
 <b> - CHANGE HISTORY - </b></dd></dl>
 <table align="left" style="width:800px">
 <tr>
@@ -528,6 +767,192 @@ timer_init_slave_mode <br />
 <br />
  </p><hr/>
  
+</div>
+</div>
+<a id="ac60d975b739ef6ab0e8e8c1b6a00b9fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac60d975b739ef6ab0e8e8c1b6a00b9fb">&#9670;&nbsp;</a></span>timer_init_external_mode_1()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void timer_init_external_mode_1 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276">timer_t</a>&#160;</td>
+          <td class="paramname"><em>timer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtimer__config__t.html">timer_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function is statically called to set the timer's clock source to the selected on-chip trigger source or TIMx_CH1 (TI1) TIMx_CH2(TI2), as well as changing the master/slave bit, if so desired.</p>
+<p>PRE-CONDITION: The advanced pointer for the appropriate timer must be non-null PRE-CONDITION (conditional): If using TI1/TI2 triggers, the gpio pins must me configured with appropriate AF settings</p>
+<p>POST-CONDITION: The timer is now clocked by the selected trigger</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer</td><td>refers to any timer present on-chip</td></tr>
+    <tr><td class="paramname">config_table</td><td>is a pointer to the config struct that matches timer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> Automatically called by timer_init if </p><div class="fragment"><div class="line"><a class="code" href="timer__cc__stm32f411__config_8c.html#ac91e927837f39a2a89f038e4909a07a1">config_table</a>[timer]-&gt;advanced-&gt;clock_source == <a class="code" href="timer__stm32f411__config_8h.html#a6b31f3195e9e32ee278b7fd42fa39dd7ad6806eedb43214eb9cc70054f5e4c997">EXTERNAL_MODE_1</a></div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a35f2cb4bfda46678a932aa816416cf02">timer_init_external_mode_2</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a023fdd1f4e7cad05d75e71f358963650">timer_init_slave_mode</a> <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="a35f2cb4bfda46678a932aa816416cf02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35f2cb4bfda46678a932aa816416cf02">&#9670;&nbsp;</a></span>timer_init_external_mode_2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void timer_init_external_mode_2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276">timer_t</a>&#160;</td>
+          <td class="paramname"><em>timer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtimer__config__t.html">timer_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function is statically called to set the timer's clock source to the selected off-chip trigger source (ETR pin).</p>
+<p>PRE-CONDITION: The advanced pointer for the appropriate timer must be non-null PRE-CONDITION: The external_trgger pointer in advanced must be non-null PRE-CONDITION: The desired ETR pin has the correct AF configuration through gpio_init</p>
+<p>POST-CONDITION: The timer is now clocked by the selected external trigger with the desired filtration and sampling characeristics.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer</td><td>refers to any timer present on-chip</td></tr>
+    <tr><td class="paramname">config_table</td><td>is a pointer to the config struct that matches timer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> Automatically called by timer_init if </p><div class="fragment"><div class="line"><a class="code" href="timer__cc__stm32f411__config_8c.html#ac91e927837f39a2a89f038e4909a07a1">config_table</a>[timer]-&gt;advanced-&gt;clock_source == <a class="code" href="timer__stm32f411__config_8h.html#a6b31f3195e9e32ee278b7fd42fa39dd7a58964a0842331618417ed43417198a19">EXTERNAL_MODE_2</a></div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#ac60d975b739ef6ab0e8e8c1b6a00b9fb">timer_init_external_mode_1</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a023fdd1f4e7cad05d75e71f358963650">timer_init_slave_mode</a> <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ 
+</div>
+</div>
+<a id="a023fdd1f4e7cad05d75e71f358963650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a023fdd1f4e7cad05d75e71f358963650">&#9670;&nbsp;</a></span>timer_init_slave_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void timer_init_slave_mode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276">timer_t</a>&#160;</td>
+          <td class="paramname"><em>timer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structtimer__config__t.html">timer_config_t</a> *&#160;</td>
+          <td class="paramname"><em>config</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p><b>Description:</b> </p>
+<p>This function is statically called to set the timer's slave behaviour to that defined in the advanced pointer. Includes various encoder modes, reset, gated, and trigger modes.</p>
+<p><b>Note:</b> </p><pre class="fragment">The encoders' behaviours are hard-coded for the time being. The inclusion of yet another
+    encoder_settings sub-structure may be necessary, but as of now it's not included.
+</pre><p>PRE-CONDITION: The advanced pointer for the appropriate timer must be non-null PRE-CONDITION (conditional): If the trigger source is ETRF, the desired ETR pin has the correct AF configuration through gpio_init PRE-CONDITION (conditional): If encoder modes or TI1 and TI2 are explicitly selected as trigger, the must be correctly AF configured through gpio_init</p>
+<p>POST-CONDITION: The timer is now in the desired slave mode.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer</td><td>refers to any timer present on-chip</td></tr>
+    <tr><td class="paramname">config_table</td><td>is a pointer to the config struct that matches timer</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p><b>Example:</b> Automatically called by timer_init if </p><div class="fragment"><div class="line">config-&gt;advanced != NULL</div></div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a class="el" href="timer__stm32f411_8c.html#a1e855e5068e026d91c42c5b7fce0b591">timer_init</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#ac60d975b739ef6ab0e8e8c1b6a00b9fb">timer_init_external_mode_1</a> </dd>
+<dd>
+<a class="el" href="timer__stm32f411_8c.html#a35f2cb4bfda46678a932aa816416cf02">timer_init_external_mode_2</a> <br />
+<b> - CHANGE HISTORY - </b></dd></dl>
+<table align="left" style="width:800px">
+<tr>
+<td>Date </td><td>Software Version </td><td>Initials </td><td>Description  </td></tr>
+</table>
+<p><br />
+<br />
+ </p><hr/>
+ <p>&lt; The entire Encoder Mode Behaviour is hard-coded. For flexibility, read RM0383 12.3.16 and modify as needed</p>
+
 </div>
 </div>
 <a id="a2033291e9410536e526d2e0f6c505c8d"></a>
@@ -825,6 +1250,421 @@ Intended to be used alongside timer_register_read() to create composite advanced
 <br />
  </p><hr/>
  
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="aa91db432736e790a520125e57f60fd12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa91db432736e790a520125e57f60fd12">&#9670;&nbsp;</a></span>TIM_ARR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_ARR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x2CUL, (uint32_t *)TIM2_BASE + 0x2CUL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x2CUL, (uint32_t *)TIM4_BASE + 0x2CUL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x2CUL, (uint32_t *)TIM9_BASE + 0x2CUL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Auto Reload registers </p>
+
+</div>
+</div>
+<a id="af1fe28cdbb96b15223908b1a42dcb4ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1fe28cdbb96b15223908b1a42dcb4ac">&#9670;&nbsp;</a></span>TIM_BDTR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_BDTR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x44UL, (uint32_t *) NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Break and Dead Time registers </p>
+
+</div>
+</div>
+<a id="a7c99ed97951dbc3347e9069cb4808ff8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c99ed97951dbc3347e9069cb4808ff8">&#9670;&nbsp;</a></span>TIM_CCER</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_CCER[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x20UL, (uint32_t *)TIM2_BASE + 0x20UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x20UL, (uint32_t *)TIM4_BASE + 0x20UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x20UL, (uint32_t *)TIM9_BASE + 0x20UL,</div><div class="line">    (uint32_t *)TIM10_BASE + 0x20UL, (uint32_t *)TIM11_BASE + 0x20UL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Capture and Compare Enable regsiters </p>
+
+</div>
+</div>
+<a id="ad2ea23afd2a84167b34b3c100d607ba0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2ea23afd2a84167b34b3c100d607ba0">&#9670;&nbsp;</a></span>TIM_CCMR1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_CCMR1[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x18UL, (uint32_t *)TIM2_BASE + 0x18UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x18UL, (uint32_t *)TIM4_BASE + 0x18UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x18UL, (uint32_t *)TIM9_BASE + 0x18UL,</div><div class="line">    (uint32_t *)TIM10_BASE + 0x18UL, (uint32_t *)TIM11_BASE + 0x18UL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Capture and Compare Mode Register 1 registers </p>
+
+</div>
+</div>
+<a id="a2df0c2587f5c94ce9da769f2f5a08c52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df0c2587f5c94ce9da769f2f5a08c52">&#9670;&nbsp;</a></span>TIM_CCMR2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_CCMR2[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x1CUL, (uint32_t *)TIM2_BASE + 0x1CUL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x1CUL, (uint32_t *)TIM4_BASE + 0x1CUL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x1CUL, (uint32_t *)NULL,</div><div class="line">    (uint32_t *)NULL, (uint32_t *)NULL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Capture and Compare Mode Register 2 registers </p>
+
+</div>
+</div>
+<a id="a6179e8fd235e0ca6eb57d47f63ece471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6179e8fd235e0ca6eb57d47f63ece471">&#9670;&nbsp;</a></span>TIM_CCR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_CCR[NUM_CCRS]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">     (uint32_t *)TIM1_BASE + 0x34UL, (uint32_t *)TIM1_BASE + 0x38UL,</div><div class="line">    (uint32_t *)TIM1_BASE + 0x3CUL, (uint32_t *)TIM1_BASE + 0x40UL,</div><div class="line"></div><div class="line">    (uint32_t *)TIM2_BASE + 0x34UL, (uint32_t *)TIM2_BASE + 0x38UL,</div><div class="line">    (uint32_t *)TIM2_BASE + 0x3CUL, (uint32_t *)TIM2_BASE + 0x40UL,</div><div class="line"></div><div class="line">    (uint32_t *)TIM3_BASE + 0x34UL, (uint32_t *)TIM3_BASE + 0x38UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x3CUL, (uint32_t *)TIM3_BASE + 0x40UL,</div><div class="line"></div><div class="line">    (uint32_t *)TIM4_BASE + 0x34UL, (uint32_t *)TIM4_BASE + 0x38UL,</div><div class="line">    (uint32_t *)TIM4_BASE + 0x3CUL, (uint32_t *)TIM4_BASE + 0x40UL,</div><div class="line"></div><div class="line">    (uint32_t *)TIM5_BASE + 0x34UL, (uint32_t *)TIM5_BASE + 0x38UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x3CUL, (uint32_t *)TIM5_BASE + 0x40UL,</div><div class="line"></div><div class="line">    (uint32_t *)TIM9_BASE + 0x34UL, (uint32_t *)TIM9_BASE + 0x38UL,</div><div class="line"></div><div class="line">    (uint32_t *)TIM10_BASE + 0x34UL,</div><div class="line"></div><div class="line">    (uint32_t *)TIM11_BASE + 0x34UL</div><div class="line">}</div></div><!-- fragment --><p>Composite array of pointers to all Capture and Compare registers </p>
+
+</div>
+</div>
+<a id="a8c6ec0a1727aafed3db116522548cd7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c6ec0a1727aafed3db116522548cd7a">&#9670;&nbsp;</a></span>TIM_CNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_CNT[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x24UL, (uint32_t *)TIM2_BASE + 0x24UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x24UL, (uint32_t *)TIM4_BASE + 0x24UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x24UL, (uint32_t *)TIM9_BASE + 0x24UL,</div><div class="line">    (uint32_t *)TIM10_BASE + 0x24UL, (uint32_t *)TIM11_BASE + 0x24UL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Count registers </p>
+
+</div>
+</div>
+<a id="a003ea0a418d79aa0f43b83593d6ba61e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a003ea0a418d79aa0f43b83593d6ba61e">&#9670;&nbsp;</a></span>TIM_CR1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_CR1[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE, (uint32_t *)TIM2_BASE, (uint32_t *)TIM3_BASE,</div><div class="line">    (uint32_t *)TIM4_BASE, (uint32_t *)TIM5_BASE, (uint32_t *)TIM9_BASE,</div><div class="line">    (uint32_t *)TIM10_BASE, (uint32_t *)TIM11_BASE</div><div class="line">}</div></div><!-- fragment --><p>Array of poiners to Control Register 1 registers </p>
+
+</div>
+</div>
+<a id="ad01abfc90a8aec20b41607fa63320422"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad01abfc90a8aec20b41607fa63320422">&#9670;&nbsp;</a></span>TIM_CR2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_CR2[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x04UL, (uint32_t *)TIM2_BASE + 0x04UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x04UL, (uint32_t *)TIM4_BASE + 0x04UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x04UL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL, (uint32_t *) NULL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Control Register 2 registers </p>
+
+</div>
+</div>
+<a id="af5b33300352a7139f59f839b6beb45b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b33300352a7139f59f839b6beb45b2">&#9670;&nbsp;</a></span>TIM_DCR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_DCR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x48UL, (uint32_t *)TIM2_BASE + 0x48UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x48UL, (uint32_t *)TIM4_BASE + 0x48UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x48UL, (uint32_t *) NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to DMA Control registers </p>
+
+</div>
+</div>
+<a id="aecfcb7cc7a58d6a79f79332f97a348b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecfcb7cc7a58d6a79f79332f97a348b2">&#9670;&nbsp;</a></span>TIM_DIER</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_DIER[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x0CUL, (uint32_t *)TIM2_BASE + 0x0CUL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x0CUL, (uint32_t *)TIM4_BASE + 0x0CUL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x0CUL, (uint32_t *)TIM9_BASE + 0x0CUL,</div><div class="line">    (uint32_t *)TIM10_BASE + 0x0CUL, (uint32_t *)TIM11_BASE + 0x0CUL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to DMA and Interrupt Enable registers </p>
+
+</div>
+</div>
+<a id="aba613b176688e0f3e926d0bff315ca88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba613b176688e0f3e926d0bff315ca88">&#9670;&nbsp;</a></span>TIM_DMAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_DMAR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x4C, (uint32_t *)TIM2_BASE + 0x4C,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x4C, (uint32_t *)TIM4_BASE + 0x4C,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x4C, (uint32_t *) NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to DMA Address registers </p>
+
+</div>
+</div>
+<a id="affeba98f5df6dd8721e497e5041f2124"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affeba98f5df6dd8721e497e5041f2124">&#9670;&nbsp;</a></span>TIM_EGR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_EGR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x14UL, (uint32_t *)TIM2_BASE + 0x14UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x14UL, (uint32_t *)TIM4_BASE + 0x14UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x14UL, (uint32_t *)TIM9_BASE + 0x14UL,</div><div class="line">    (uint32_t *)TIM10_BASE + 0x14UL, (uint32_t *)TIM11_BASE + 0x14UL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Event Generation registers </p>
+
+</div>
+</div>
+<a id="a86d092f8383cfa4d5ca91914df658346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86d092f8383cfa4d5ca91914df658346">&#9670;&nbsp;</a></span>TIM_OR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_OR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *) NULL, (uint32_t *)TIM2_BASE + 0x50UL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x50UL, (uint32_t *) NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) TIM11_BASE + 0x50UL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Option registers </p>
+
+</div>
+</div>
+<a id="ab3df114acc8298bab0cfec0f60be821e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3df114acc8298bab0cfec0f60be821e">&#9670;&nbsp;</a></span>TIM_PSC</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t* const TIM_PSC[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint16_t *)TIM1_BASE + 0x28UL, (uint16_t *)TIM2_BASE + 0x28UL,</div><div class="line">    (uint16_t *)TIM3_BASE + 0x28UL, (uint16_t *)TIM4_BASE + 0x28UL,</div><div class="line">    (uint16_t *)TIM5_BASE + 0x28UL, (uint16_t *)TIM9_BASE + 0x28UL,</div><div class="line">    (uint16_t *)TIM10_BASE + 0x28UL, (uint16_t *)TIM11_BASE + 0x28UL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Prescaler registers </p>
+
+</div>
+</div>
+<a id="a12410c5a3038fd163a428a817fcafac1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12410c5a3038fd163a428a817fcafac1">&#9670;&nbsp;</a></span>TIM_RCR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_RCR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x30UL, (uint32_t *)NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL</div><div class="line">}</div></div><!-- fragment --><p>Array of registers to Repetition Counter registers </p>
+
+</div>
+</div>
+<a id="a07c3049475a5ea2648534eb2e86576ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c3049475a5ea2648534eb2e86576ea">&#9670;&nbsp;</a></span>TIM_SMCR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_SMCR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x08UL, (uint32_t *)TIM2_BASE + 0x08UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x08UL, (uint32_t *)TIM4_BASE + 0x08UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x08UL, (uint32_t *)TIM9_BASE + 0x08UL,</div><div class="line">    (uint32_t *) NULL, (uint32_t *) NULL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Slave Mode Config registers </p>
+
+</div>
+</div>
+<a id="acff1970fec5b1355fb5d324b7d2e1eeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acff1970fec5b1355fb5d324b7d2e1eeb">&#9670;&nbsp;</a></span>TIM_SR</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint32_t* const TIM_SR[<a class="el" href="timer__stm32f411__config_8h.html#a764f517e2e45ad48bcd8b88590ab5276a72a81da974164e446f850a7fb2716eca">NUM_TIMERS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div><div class="line">{</div><div class="line">    (uint32_t *)TIM1_BASE + 0x10UL, (uint32_t *)TIM2_BASE + 0x10UL,</div><div class="line">    (uint32_t *)TIM3_BASE + 0x10UL, (uint32_t *)TIM4_BASE + 0x10UL,</div><div class="line">    (uint32_t *)TIM5_BASE + 0x10UL, (uint32_t *)TIM9_BASE + 0x10UL,</div><div class="line">    (uint32_t *)TIM10_BASE + 0x10UL, (uint32_t *)TIM11_BASE + 0x10UL</div><div class="line">}</div></div><!-- fragment --><p>Array of pointers to Status registers </p>
+
 </div>
 </div>
 </div><!-- contents -->
